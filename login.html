@@ -1,0 +1,44 @@
+<!--
+  6.813/6.831 GR4
+  Team ZZZZ
+  Martin (Ding) Ma, Caitlin Mehl, Connie Siu, Linda Wang
+
+  Login page
+-->
+
+<html>
+<head>
+	<title>
+		Login
+	</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
+</head>
+
+<body>
+	<h1>
+		Login
+	</h1>
+</body>
+
+
+<script type="text/javascript">
+
+//As of now, only testing if javscript variables can carry over between different html sites. Not really functional.
+  $(document).ready(function() {
+  	console.log('login page');
+  	var playlist = JSON.parse(localStorage.getItem('playlist'));
+    console.log(playlist);
+    playlist['advice'] = 'eat less before you sleep';
+    playlist['music'] = 'soothing sleep music';
+    console.log(playlist);
+    localStorage.setItem('playlist', JSON.stringify(playlist));
+    window.location.href = 'index.html';
+  });
+
+</script>
+
+
+
+</html>

@@ -4,6 +4,8 @@
   6.813/6.831 GR4
   Team ZZZZ
   Martin (Ding) Ma, Caitlin Mehl, Connie Siu, Linda Wang
+
+  Home page
 -->
 
 <html>
@@ -13,6 +15,20 @@
   <title>Zzzz</title>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
+
+  <script type="text/javascript">
+  /*
+  NOTE: In order for javascript variables to be usable across different web pages, need to store it in local storage first before you leave the current page. For example:
+  var playlist = {'movie': 'fall asleep fast', 'journal': 'March 28'}
+  localStorage.setItem('playlist', JSON.stringify(playlist));
+
+  And this is how you access the variable when you load up new page:
+  var playlist = JSON.parse(localStorage.getItem('playlist'));
+  */
+  var playlist = JSON.parse(localStorage.getItem('playlist'));
+
+  </script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
 
 <!--
@@ -22,47 +38,110 @@
 </head>
 <body>
 
+
+<h1 align='center'>
+  ZZZZ
+</h1>
+
+<h3 align='center'>
+  a randomized sleep aid for insomnia
+</h3>
+
 <h3 class="ui justified header">
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="heart icon"></i><br> Login </span>
+      <span> <i class="add user icon"></i><br> 
+        <input id="btnLogin" type="button" value="Login">
+      </span>
     </div>
   </div>
 
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="heart icon"></i><br> My Favorites </span>
+      <span> <i class="heart icon"></i><i class="heart icon"></i><i class="heart icon"></i><br> 
+        <input id="btnMyFavorites" type="button" value="My Favorites">
+      </span>
     </div>
     <div class="item">
-      <span> <i class="edit icon"></i><br> My Journal </span>
+      <span> <i class="edit icon"></i><br> 
+        <input id="btnMyJournal" type="button" value="My Journal">
+      </span>
     </div>
   </div>
 
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="heart icon"></i><br> Settings </span>
+      <span> <i class="settings icon"></i><br>
+        <input id="btnMySettings" type="button" value="My Settings">
+      </span>
     </div>
   </div>
 </h3>
 
 
 <div class="ui segments">
-  <i class="arrow left icon"></i>
   <div class="ui embed" data-source="youtube" data-id="B5Wo1ubuzAE" data-placeholder="/images/bobross.png">
     <iframe width="200" height="150" src="https://www.youtube.com/embed/B5Wo1ubuzAE" frameborder="0" allowfullscreen></iframe>
   </div>
-  <i class="arrow right icon"></i>
-</div>
-  <div class="ui segment">
-    <h3 class="ui justified header">
-      <div class="ui horizontal list">
-        <div class="item">
-          <span> <i class="heart icon"></i><br> Favorite </span>
-        </div>
+
+  <h3 class = "ui justified header">
+    <div class = "ui horizontal list">
+      <div class="item">
+        <span> <i class="arrow left icon"></i><br>
+          <input id="btnBack" type="button" value="Back">
+        </span>
       </div>
-    </h3>
-  </div>
-</div>
+    </div>
+    <div class="ui horizontal list">
+      <div class="item">
+        <span> <i class="heart icon"></i><br>
+          <input id="btnFavorite" type="button" value="Favorite">
+        </span>
+      </div>
+    </div>
+    <div class = "ui horizontal list">
+      <div class="item">
+        <span> <i class="random icon"></i><br>
+          <input id="btnShuffle" type="button" value="Shuffle">
+        </span>
+      </div>
+    </div>
+  </h3>
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    console.log('home page');
+
+
+    //as of now, only used login button to test storing javascript variables across different webpages
+    $('#btnLogin').click(function(e) {
+      //initializes playlist
+      var defaultPlaylist = {'movie': 'fall asleep fast', 'journal': 'March 28'}
+      localStorage.setItem('playlist', JSON.stringify(defaultPlaylist));
+      window.alert('Successful login! Current playlist: ' + JSON.stringify(defaultPlaylist));
+      document.getElementById('btnLogin').disabled = true;
+      //window.location.href = 'login.html';
+    });
+
+
+    $('#btnMyFavorites').click(function(e) {
+      window.location.href = 'favorites.html';  //Connie please edit favorites.html file
+    });
+
+    $('#btnMySettings').click(function(e) {
+      window.location.href = 'settings.html';  //Caitlin please edit settings.html file
+    });
+
+    $('#btnMyJournal').click(function(e) {
+      window.location.href = 'journal.html';  //Linda please edit journal.html file
+    });
+
+
+  });
+
+</script>
+
 
 
 </body>

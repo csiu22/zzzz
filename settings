@@ -1,0 +1,36 @@
+<!--
+  6.813/6.831 GR4
+  Team ZZZZ
+  Martin (Ding) Ma, Caitlin Mehl, Connie Siu, Linda Wang
+
+  Settings page
+-->
+
+<html>
+<head>
+	<title>
+		My Settings
+	</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
+</head>
+
+<body>
+	<h1>
+		My Settings
+	</h1>
+</body>
+
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    
+  });
+
+</script>
+
+
+
+</html>
