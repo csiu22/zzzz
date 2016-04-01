@@ -30,8 +30,7 @@
   	console.log('login page');
   	var playlist = JSON.parse(localStorage.getItem('playlist'));
     console.log(playlist);
-    playlist['advice'] = 'eat less before you sleep';
-    playlist['music'] = 'soothing sleep music';
+    playlist.push('music2');
     console.log(playlist);
     localStorage.setItem('playlist', JSON.stringify(playlist));
     window.location.href = 'index.html';
