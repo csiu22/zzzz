@@ -18,14 +18,19 @@
 
   <script type="text/javascript">
   /*
+  IGNORE BELOW for now, couldn't really get this to work between different windows so just putting everything in the same window for now
+
   NOTE: In order for javascript variables to be usable across different web pages, need to store it in local storage first before you leave the current page. For example:
   var playlist = ['music1']
   localStorage.setItem('playlist', JSON.stringify(playlist));
 
   And this is how you access the variable when you load up new page:
   var playlist = JSON.parse(localStorage.getItem('playlist'));
-  */
+  So below, what I'm doing is basically loading the playlist variable from local storage, that was changed by settings page.
+  
   var playlist = JSON.parse(localStorage.getItem('playlist'));
+  var favorites = JSON.parse(localStorage.getItem('favorites'));
+  */
 
   </script>
 
@@ -116,37 +121,57 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
-    backStack = [];
-    forwardStack = [];
+    //feel free to change this later to incorporate the differnt settings, right now everything is just kept in a list
+    var playlist = ['journal1', 'video1', 'music1', 'binaural1', 'relaxation1', 'tips1']
+    var favorites = [];
+    var backStack = [];
+    var forwardStack = [];
+    var journalEntries = ["3/29 had a good night's sleep!"];
     document.getElementById('btnBack').disabled = true;
 
-    //as of now, only used login button to test storing javascript variables across different webpages
+    //not really functional as of now, used for testing purposes only
     $('#btnLogin').click(function(e) {
       //initializes playlist
-      var defaultPlaylist = ['journal1', 'video1', 'music1', 'binaural1', 'relaxation1', 'tips1']
-      localStorage.setItem('playlist', JSON.stringify(defaultPlaylist));
-      window.alert('Successful login! Current playlist: ' + JSON.stringify(defaultPlaylist));
+      //localStorage.setItem('playlist', JSON.stringify(defaultPlaylist));
+      window.alert('Successful login! Current playlist: ' + JSON.stringify(playlist));
       document.getElementById('btnLogin').disabled = true;
       //window.location.href = 'login.html';
     });
 
-
     $('#btnMyFavorites').click(function(e) {
-      window.location.href = 'favorites.html';  //Connie please edit favorites.html file
+      document.getElementById('content').innerHTML = '';
+      var content = document.createElement('div');
+      content.innerHTML = "<h2>My Favorites</h2>";
+      content.innerHTML += JSON.stringify(favorites);
+      document.getElementById('content').appendChild(content);
+      //window.location.href = 'favorites.html'; 
+      document.getElementById('btnFavorite').disabled = true;
     });
 
     $('#btnMySettings').click(function(e) {
-      window.location.href = 'settings.html';  //Caitlin please edit settings.html file
+      document.getElementById('content').innerHTML = '';
+      var content = document.createElement('div');
+      content.innerHTML = "<h2>My Settings</h2> Current Playlist: <br>";
+      content.innerHTML += JSON.stringify(playlist);
+      document.getElementById('content').appendChild(content);
+      //window.location.href = 'settings.html';  
+      document.getElementById('btnFavorite').disabled = true;
     });
 
     $('#btnMyJournal').click(function(e) {
-      window.location.href = 'journal.html';  //Linda please edit journal.html file
+       document.getElementById('content').innerHTML = '';
+       var content = document.createElement('div');
+       content.innerHTML = "<h2>My Journal Entries</h2>";
+       content.innerHTML += JSON.stringify(journalEntries);
+       document.getElementById('content').appendChild(content);
+       document.getElementById('btnFavorite').disabled = true;
     });
 
 
     $('#btnShuffle').click(function(e) {
       document.getElementById('content').innerHTML = '';
       document.getElementById('btnBack').disabled = false;
+      document.getElementById('btnFavorite').disabled = false;
 
       //goes forward instead of shuffle if there's stuff in forward stack
       if (forwardStack.length > 0) {
@@ -178,11 +203,12 @@
 
 
     $('#btnBack').click(function(e) { 
+      document.getElementById('btnFavorite').disabled = false;
       document.getElementById('content').innerHTML = '';
       popped = backStack.pop();
       if (backStack.length > 0) {
         contentName = backStack[backStack.length-1];
-      } else {
+      } else {  
         contentName = 'default';
         document.getElementById('btnBack').disabled = true;
       }
@@ -196,6 +222,30 @@
     });
 
 
+    $('#btnFavorite').click(function(e) {
+      if (backStack.length > 0) {
+        favorites.push(backStack[backStack.length-1]);
+      } else {
+        favorites.push('new journal entry');
+      }
+      console.log(favorites);
+      document.getElementById('btnFavorite').disabled = true;
+    });
+
+
+    //submits and saves new journal entry
+    $('#btnSubmit').click(function(e) {
+      console.log('clicked');
+      var entry = document.getElementById('entry').value;
+      //gets current date
+      var date = new Date().getDate();
+      var month = new Date().getMonth()+1;
+      journalEntries.push(month + '/' + + date + ' ' + entry);
+      window.alert('Successfully saved journal entry!');
+      document.getElementById('btnSubmit').disabled = true;
+    });
+
+
     //given a content's name, returns the HTML of the content
     getContent = function(contentName) {
       var content = document.createElement('div');
@@ -203,23 +253,22 @@
         content.innerHTML = "<h2>Journal Entry</h2> I can't sleep because I'M HANGRY >:[";
       }
       else if (contentName == 'video1') {
-        content.innerHTML = "<h2>Video</h2> I can't sleep because I'M HANGRY >:[";
+        content.innerHTML = "<h2>Video</h2> <iframe width='444' height='250' src='https://www.youtube.com/embed/wFYcAAK_LEw?'> </iframe>";
       }
       else if (contentName == 'music1') {
-        content.innerHTML = "<h2>Music</h2> I can't sleep because I'M HANGRY >:[";
+        content.innerHTML = "<h2>Music</h2> <iframe width='444' height='250' src='https://www.youtube.com/embed/wQA1zJmMN2U?'> </iframe>";
       }
       else if (contentName == 'binaural1') {
-        content.innerHTML = "<h2>Binaural Beats</h2> I can't sleep because I'M HANGRY >:[";
+        content.innerHTML = "<h2>Binaural Beats</h2> <iframe width='444' height='250' src='https://www.youtube.com/embed/1l13TSFrNgM?'> </iframe>";
       }
       else if (contentName == 'relaxation1') {
-        content.innerHTML = "<h2>Relaxation</h2> I can't sleep because I'M HANGRY >:[";
+        content.innerHTML = "<h2>Relaxation</h2> Close your eyes and notice your breathing. Turn all your attention to your natural breathing pattern and feel the air enter and leave your nose or mouth.";
       }
       else if (contentName == 'tips1') {
-        content.innerHTML = "<h2>Tips & Quotes</h2> I can't sleep because I'M HANGRY >:[";
+        content.innerHTML = "<h2>Tips & Quotes</h2> Don't eat too much food before you go to bed!";
       }
-      else {
-        content.innerHTML = "<h2>Journal Entry</h2> What's on your mind?<br> <input id='entry' type='text' value='Begin Typing' autofocus><br> <input id='btnSubmit' type='button' value='Submit'> "; 
-
+      else {  //default
+        content.innerHTML = "<h2>Journal Entry</h2> What's on your mind?<br> <input id='entry' type='text' value='Begin Typing' autofocus><br> <input id='btnSubmit' type='button' value='Submit'> ";
       }
       return content;
     }

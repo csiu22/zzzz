@@ -20,13 +20,21 @@
 	<h1>
 		My Favorites
 	</h1>
+	<div id="favorites"></div><br>
+	<input id="btnBack" type="button" value="Back to Homepage">
 </body>
 
 
 <script type="text/javascript">
 
   $(document).ready(function() {
+  	var favorites = JSON.parse(localStorage.getItem('favorites'));
+  	document.getElementById('favorites').innerHTML = favorites;
 
+  	$('#btnBack').click(function(e) {
+  		//localStorage.setItem('favorites', JSON.stringify(favorites));
+  		window.location.href = 'index.html';
+  	});
   });
 
 </script>
