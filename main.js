@@ -22,7 +22,7 @@
 var playContent = function(content){
       console.log(backStack);
       console.log(forwardStack);
-      if(currentlyPlaying) backStack.push(currentlyPlaying);
+  
 
       if(content.type === "video"){
           
@@ -54,22 +54,22 @@ var playContent = function(content){
       */
       document.getElementById("content").innerHTML=insert; 
 
-      currentlyPlaying = content; 
-      if(backStack.length === 0) document.getElementById('btnBack').disabled = true;
 }
 
 var shuffle = function(){
         category_index = Math.floor(Math.random() * categories.length);
         category = categories[category_index];
         content = getContent(category);
-        console.log(category);
         playContent(content);
+        if(currentlyPlaying) backStack.push(currentlyPlaying);
+        currentlyPlaying = content; 
 }
 
 var playNext = function(){
         content = forwardStack.pop();
         backStack.push(content);
         playContent(content);
+        currentlyPlaying = content;
 }
 
 var playBack = function(){
@@ -77,6 +77,7 @@ var playBack = function(){
       if(content){
           forwardStack.push(content);
           playContent(content);
+          currentlyPlaying = content;
       }
 }
 
