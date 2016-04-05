@@ -17,25 +17,9 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
   <script type="text/javascript" src="main.js"></script>
+   <script type="text/javascript" src="pages/js/content.js"></script>
+  <script type="text/javascript" src="pages/js/mainview.js"></script>
 
-
-  <script type="text/javascript">
-  /*
-  IGNORE BELOW for now, couldn't really get this to work between different windows so just putting everything in the same window for now
-
-  NOTE: In order for javascript variables to be usable across different web pages, need to store it in local storage first before you leave the current page. For example:
-  var playlist = ['music1']
-  localStorage.setItem('playlist', JSON.stringify(playlist));
-
-  And this is how you access the variable when you load up new page:
-  var playlist = JSON.parse(localStorage.getItem('playlist'));
-  So below, what I'm doing is basically loading the playlist variable from local storage, that was changed by settings page.
-  
-  var playlist = JSON.parse(localStorage.getItem('playlist'));
-  var favorites = JSON.parse(localStorage.getItem('favorites'));
-  */
-
-  </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
   <link rel="stylesheet" href="mainLayout.css">
@@ -51,9 +35,8 @@
 
 <h3 class="ui justified header">
   <div class="ui horizontal list">
-    <div class="item">
+    <div id="topleft" class="item">
       <i id="btnLogin" class="add user icon huge link" data-content="Login" ></i>
-      
     </div>
   </div>
 
@@ -75,17 +58,17 @@
 </h3>
 
 
-<div id="content" class = "ui three column doubling stackable grid container">
-       <div id="displayportrow" class="center aligned stretched row"> 
+<div id="displayport" class = "ui three column doubling stackable grid container">
+       <div id="contentrow" class="center aligned stretched row"> 
 
                 <div class="four wide column">
                       <div class="ui middle aligned content"> 
-                        <i id="btnBack" class="circular arrow left icon huge link" data-content="Back" data-variation="inverted"></i>
+                        <i id="btnBack" class="circular arrow left icon huge link"></i>
                       </div>
                 </div>
 
               <div class="eight wide column">
-                        <div class="displayport ui center aligned segment">
+                        <div id="content" class="ui center aligned segment">
                             test
                         </div>
               </div>
@@ -101,7 +84,7 @@
             <div class="sixteen wide column">
 
               <div class="ui center aligned">
-                  <i id="btnFavorite" class="heart icon huge red link" data-content="Save this in favorites" data-variation="inverted"></i>
+                  <i id="btnFavorite" class="heart icon huge red link"></i>
               </div>
 
             </div>

@@ -1,14 +1,20 @@
  $(document).ready(function() {
 
-    var categories = ["binarualBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"]
-    var disabled_categories = [];
-    var favorites = [];
-    var backStack = [];
-    var forwardStack = [];
-    var playList = [];
-    var currentlyPlaying;
+    //global variables for the entire app
 
-    var totalContent = {};
+    categories = ["binarualBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"]
+    disabled_categories = [];
+    favorites = [];
+    backStack = [];
+    forwardStack = [];
+    playList = [];
+    currentlyPlaying = "welcome content"; // let's create welcome content for the first screen
+
+    totalContent = {};
+
+    loadContent();
+    loadButtons();
+});
 
 
 var playContent = function(content){
@@ -33,7 +39,7 @@ var playContent = function(content){
       /*
         until this is developed further
       */
-      //document.getElementById("content").innerHTML='<object type="text/html" data=".html" ></object>'; 
+      document.getElementById("content").innerHTML='<h3>' + content.title + "</h3>"; 
 
       currentlyPlaying = content; 
       if(backStack.length === 0) document.getElementById('btnBack').disabled = true;
@@ -44,8 +50,8 @@ var shuffle = function(){
         //randomly choose from playlist
         category_index = Math.floor(Math.random() * categories.length);
         category = categories[category_index];
-
         content = getContent(category);
+        console.log(category);
         playContent(content);
 }
 
@@ -64,18 +70,12 @@ var playBack = function(){
 }
 
 var getContent = function(category){
-    item_list = totalContent[category].length;
+    item_list = totalContent[category];
     item_index = Math.floor(Math.random() * item_list.length);
     item = item_list[item_index];
     return item
 }
 
 
-$('.icon')
-  .popup({
-          delay: {
-                show: 300,
-                hide: 0
-               }
-        });
-  });
+
+

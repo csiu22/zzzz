@@ -1,6 +1,5 @@
-#content {
+#displayport {
 	height: 60%;
-	border: 1px solid black;
 }
 
 .red{
@@ -11,6 +10,11 @@
 	width: 10%;
 }
 
-#displayportrow{
+#contentrow{
 	height: 80% !important;
+}
+
+object{
+	width:100%;
+	height:100%;
 }

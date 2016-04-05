@@ -7,21 +7,100 @@
 -->
 
 <html>
-<head>
-	<title>
-		My Settings
-	</title>
+
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
 	<script type="text/javascript" src="js/settings.js"></script>
-</head>
 
-<body>
-	<h1>
-		Test
-	</h1>
-</body>
+
+<div class="ui accordion styled fluid">
+	 <div class="title">
+	 		<i class="dropdown icon"></i>
+		  <div class="ui toggle checkbox">
+		  	  <input type="checkbox" name="ASMR">
+		     	<label>ASMR</label>
+		  </div>
+	  </div>
+	  <div class="content">
+	    <p>Description</p>
+	  </div>
+
+	  <div class="title">
+	  	<i class="dropdown icon"></i>
+		   <div class="ui toggle checkbox">
+		  	  <input type="checkbox" name="binaural_Beats">
+		     	<label>Binaural Beats</label>
+		  </div>
+	  </div>
+	  <div class="content">
+	    <p>Description</p>
+	  </div>
+
+
+	  <div class="title">
+	  	<i class="dropdown icon"></i>
+		   <div class="ui toggle checkbox">
+		  	  <input type="checkbox" name="journal_Entries">
+		     	<label>Journal Entries</label>
+		  </div>
+	  </div>
+	  <div class="content">
+	    <p>Description</p>
+	  </div>
+
+	  <div class="title">
+	  	<i class="dropdown icon"></i>
+		   <div class="ui toggle checkbox">
+		  	  <input type="checkbox" name="music">
+		     	<label>Music</label>
+		  </div>
+	  </div>
+	  <div class="content">
+	    <p>Description</p>
+	  </div>
+
+	 <div class="title">
+	  	<i class="dropdown icon"></i>
+		   <div class="ui toggle checkbox">
+		  	  <input type="checkbox" name="relaxation">
+		     	<label>Relaxation Exercises</label>
+		  </div>
+	  </div>
+	  <div class="content">
+	    <p>Description</p>
+	  </div>
+
+	  <div class="title">
+	  	<i class="dropdown icon"></i>
+		   <div class="ui toggle checkbox">
+		  	  <input type="checkbox" name="tips_quotes">
+		     	<label>Tips and Quotes</label>
+		  </div>
+	  </div>
+	  <div class="content">
+	    <p>Description</p>
+	  </div>
+
+	  <div class="title">
+	  	<i class="dropdown icon"></i>
+		   <div class="ui toggle checkbox">
+		  	  <input type="checkbox" name="videos">
+		     	<label>Videos</label>
+		  </div>
+	  </div>
+	  <div class="content">
+	    <p>Description</p>
+	  </div>
+</div>
+
+<button class="ui red button right floated" id="home">Home</button>
+
+<script>
+$('.ui.accordion')
+  .accordion()
+;
+</script>
 
 
 </html>
