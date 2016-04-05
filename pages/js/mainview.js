@@ -3,11 +3,12 @@ var loadButtons = function(){
 
           $('#btnMyFavorites').click(function(e) {
            document.getElementById("content").innerHTML='<object type="text/html" data="pages/favorites.html" ></object>'; 
+           load_favorites();
           });
 
           $('#btnMySettings').click(function(e) {
-            console.log("my settings");
             document.getElementById("content").innerHTML='<object type="text/html" data="pages/settings.html" ></object>';  
+            load_settings();
           });
 
           $('#btnMyJournal').click(function(e) {
@@ -54,7 +55,13 @@ var loadButtons = function(){
 
 
           $('#btnFavorite').click(function(e) {
+              /*
+                  This needs to be fixed to prevent favoriting the same thing multiple times
+              */
 
+              if(currentlyPlaying){
+                favorites.push(currentlyPlaying);
+              }
 
           });
 

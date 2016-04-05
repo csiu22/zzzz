@@ -21,16 +21,25 @@ var playContent = function(content){
       if(currentlyPlaying) backStack.push(currentlyPlaying);
 
       if(content.type === "video"){
-          /*
+          
+        /*
             display embedded video player
-          */
+        */
+
+      insert = "<h2>"+ content.title+"</h2> </br> "+
+                "<iframe width='444' height='250' src='"+content.url+"' frameborder='0' allowfullscreen> </iframe>";
+
       }else if(content.type === "journal"){
+        
           /*
             display editable journal entry
-          */
+          */  
+          insert = "<h2>"+ content.title+"</h2>";
+
       }
       else if(content.type === "tips_quotes"){
             //display tips and quotes
+            insert = "<h2>"+ content.title+"</h2>";
       }
       else{
             //throw error
@@ -39,7 +48,7 @@ var playContent = function(content){
       /*
         until this is developed further
       */
-      document.getElementById("content").innerHTML='<h3>' + content.title + "</h3>"; 
+      document.getElementById("content").innerHTML=insert; 
 
       currentlyPlaying = content; 
       if(backStack.length === 0) document.getElementById('btnBack').disabled = true;

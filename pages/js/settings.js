@@ -1,4 +1,4 @@
- $(document).ready(function() {
+var load_settings = function(){
 
 $('.ui.accordion')
   .accordion()
@@ -6,4 +6,4 @@ $('.ui.accordion')
 
 
 
- });
+};
