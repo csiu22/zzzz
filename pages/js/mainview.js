@@ -23,18 +23,18 @@ var loadButtons = function(){
 
           $('#btnShuffle').click(function(e) {
             document.getElementById('content').innerHTML = '';
-            // document.getElementById('btnBack').disabled = false;
-            // document.getElementById('btnFavorite').disabled = false;
+            document.getElementById('btnBack').disabled = false;
+            document.getElementById('btnFavorite').disabled = false;
 
             if (forwardStack.length > 0) {
               playNext();
                 if (forwardStack.length == 0) {
                 document.getElementById('btnShuffle').value = "Shuffle";
-                document.getElementById('shuffleIcon').className = "random icon"
+                document.getElementById('btnShuffle').className = "circular random icon huge link"
               }
               else{
                 document.getElementById('btnShuffle').value = "Next";
-                document.getElementById('shuffleIcon').className = "arrow right icon"
+                document.getElementById('btnShuffle').className = "circular arrow right icon huge link"
               }
             }
 
@@ -45,12 +45,12 @@ var loadButtons = function(){
 
 
           $('#btnBack').click(function(e) { 
-            // document.getElementById('btnFavorite').disabled = false;
-            document.getElementById('content').innerHTML = '';
-
+            if (backStack.length === 0) document.getElementById('btnBack').disabled = true;
+            else document.getElementById('btnBack').disabled = false;
+            playBack();
             //changes shuffle to forward
             document.getElementById('btnShuffle').value = "Forward";
-            document.getElementById('shuffleIcon').className = "arrow right icon"
+            document.getElementById('btnShuffle').className = "circular arrow right icon huge link"
           });
 
 

@@ -1,5 +1,7 @@
 var loadContent = function(){
 
+	welcome_content = {title:"Welcome", type:"tips_quotes", text:"test test test", location:""},
+
 	totalContent["ASMR"] = [
 	{title:"Foam recorder wrapped in plastic foil", type:"video", url:"https://youtube.com/embed/uggv0LNHPRM?list=PLCStOTQcjfZuJu1WS1OSfe8Stq5j5L6KW"},
 

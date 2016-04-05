@@ -8,16 +8,20 @@
     backStack = [];
     forwardStack = [];
     playList = [];
-    currentlyPlaying = "welcome content"; // let's create welcome content for the first screen
-
     totalContent = {};
 
+
     loadContent();
+    currentlyPlaying = null; // let's create welcome content for the first screen
+    playContent(welcome_content);
+  
     loadButtons();
 });
 
 
 var playContent = function(content){
+      console.log(backStack);
+      console.log(forwardStack);
       if(currentlyPlaying) backStack.push(currentlyPlaying);
 
       if(content.type === "video"){
@@ -55,8 +59,6 @@ var playContent = function(content){
 }
 
 var shuffle = function(){
-        
-        //randomly choose from playlist
         category_index = Math.floor(Math.random() * categories.length);
         category = categories[category_index];
         content = getContent(category);
@@ -73,7 +75,7 @@ var playNext = function(){
 var playBack = function(){
       content = backStack.pop();
       if(content){
-          forwardStack.push(popped);
+          forwardStack.push(content);
           playContent(content);
       }
 }
