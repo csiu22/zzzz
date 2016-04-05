@@ -50,14 +50,11 @@
   ZZZZ
 </h1>
 
-<h3 align='center'>
-  a randomized sleep aid for insomnia
-</h3>
 
 <h3 class="ui justified header">
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="add user icon"></i><br> 
+      <span> <i class="add user icon huge"></i><br> 
         <input id="btnLogin" type="button" value="Login">
       </span>
     </div>
@@ -65,12 +62,14 @@
 
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="heart icon"></i><i class="heart icon"></i><i class="heart icon"></i><br> 
+      <span> <i class="heart icon large"></i>
+      <i class="heart icon large"></i>
+      <i class="heart icon large"></i><br> 
         <input id="btnMyFavorites" type="button" value="My Favorites">
       </span>
     </div>
     <div class="item">
-      <span> <i class="edit icon"></i><br> 
+      <span> <i class="edit icon huge"></i><br> 
         <input id="btnMyJournal" type="button" value="My Journal">
       </span>
     </div>
@@ -78,7 +77,7 @@
 
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="settings icon"></i><br>
+      <span> <i class="settings icon huge"></i><br>
         <input id="btnMySettings" type="button" value="My Settings">
       </span>
     </div>
@@ -86,38 +85,48 @@
 </h3>
 
 
-<div id="content">
-  <div class="journal">
-    <h2>Journal Entry</h2>
-    What's on your mind?<br>
-    <input id='entry' type="text" value='Begin Typing' autofocus><br>
-    <input id='btnSubmit' type='button' value='Submit'>
-  </div>
-</div>
+<div id="content" class = "ui three column doubling stackable grid container">
+       <div id="displayportrow" class="center aligned stretched row"> 
 
-  <h3 class = "ui justified header">
-    <div class = "ui horizontal list">
-      <div class="item">
-        <span> <i class="arrow left icon"></i><br>
-          <input id="btnBack" type="button" value="Back">
-        </span>
+                <div class="four wide column">
+                      <div class="ui middle aligned content"> 
+                        <i class="arrow left icon huge"></i><br>
+                        <input id="btnBack" type="button" value="Back">
+                      </div>
+                </div>
+
+              <div class="eight wide column">
+
+
+                        <div class="displayport ui center aligned segment">
+                            test
+                        </div>
+
+              </div>
+              <div class = "four wide column">
+                    <div class="ui center aligned">
+                            <span> <i class="random icon huge" id = "shuffleIcon"></i><br>
+                              <input id="btnShuffle" type="button" value="Shuffle">
+                            </span>
+                  </div>
+
+              </div>
       </div>
-    </div>
-    <div class="ui horizontal list">
-      <div class="item">
-        <span> <i class="heart icon"></i><br>
-          <input id="btnFavorite" type="button" value="Favorite">
-        </span>
-      </div>
-    </div>
-    <div class = "ui horizontal list">
-      <div class="item">
-        <span> <i class="random icon" id = "shuffleIcon"></i><br>
-          <input id="btnShuffle" type="button" value="Shuffle">
-        </span>
-      </div>
-    </div>
-  </h3>
+     
+         <div class="center aligned row"> 
+            <div class="fourteen wide column">
+
+              <div class="ui center aligned">
+                  <span> <i class="heart icon huge red"></i><br>
+                        <input id="btnFavorite" type="button" value="Favorite">
+                  </span>
+              </div>
+
+            </div>
+        </div>  
+</div>   
+
+
 
 <script type="text/javascript">
 
