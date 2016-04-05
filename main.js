@@ -2,7 +2,7 @@
 
     //global variables for the entire app
 
-    categories = ["binarualBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"]
+    categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"]
     disabled_categories = [];
     favorites = [];
     backStack = [];

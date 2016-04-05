@@ -2,7 +2,7 @@ var loadButtons = function(){
 
 
           $('#btnMyFavorites').click(function(e) {
-           document.getElementById("content").innerHTML='<object type="text/html" data="pages/favorites.html" ></object>'; 
+          document.getElementById("content").innerHTML='<object type="text/html" data="pages/favorites.html" ></object>'; 
            load_favorites();
           });
 

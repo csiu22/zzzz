@@ -5,8 +5,6 @@ var loadContent = function(){
 
 	];
 
-
-
 	totalContent["binauralBeats"] = [
 	{title:"Deep Sleep - Isochronic Binaural Beats", type:"video", url:"https://youtube.com/embed/1l13TSFrNgM?list=PLCStOTQcjfZs6Xncqbi-zsrQzk5ohkcj5"},
 
