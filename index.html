@@ -16,6 +16,8 @@
   <script type="text/javascript">"https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"</script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+
 
   <script type="text/javascript">
   /*
@@ -38,10 +40,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
   <link rel="stylesheet" href="mainLayout.css">
 
-<!--
-  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-  <script src="semantic/dist/semantic.min.js"></script>
--->
 </head>
 <body>
 
@@ -54,32 +52,24 @@
 <h3 class="ui justified header">
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="add user icon huge"></i><br> 
-        <input id="btnLogin" type="button" value="Login">
-      </span>
+      <i id="btnLogin" class="add user icon huge link" data-content="Login" ></i>
+      
     </div>
   </div>
 
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="heart icon large"></i>
-      <i class="heart icon large"></i>
-      <i class="heart icon large"></i><br> 
-        <input id="btnMyFavorites" type="button" value="My Favorites">
+      <i id="btnMyFavorites" class="teal heartbeat icon huge link" data-content="My Favorites" data-variation="inverted"></i>
       </span>
     </div>
     <div class="item">
-      <span> <i class="edit icon huge"></i><br> 
-        <input id="btnMyJournal" type="button" value="My Journal">
-      </span>
+      <i id="btnMyJournal" class="teal edit icon huge link" data-content="My Journal Entries" data-variation="inverted"></i>
     </div>
   </div>
 
   <div class="ui horizontal list">
     <div class="item">
-      <span> <i class="settings icon huge"></i><br>
-        <input id="btnMySettings" type="button" value="My Settings">
-      </span>
+      <i id="btnMySettings" class="settings icon huge link" data-content="Settings" data-variation="inverted"></i>
     </div>
   </div>
 </h3>
@@ -90,204 +80,33 @@
 
                 <div class="four wide column">
                       <div class="ui middle aligned content"> 
-                        <i class="arrow left icon huge"></i><br>
-                        <input id="btnBack" type="button" value="Back">
+                        <i id="btnBack" class="circular arrow left icon huge link" data-content="Back" data-variation="inverted"></i>
                       </div>
                 </div>
 
               <div class="eight wide column">
-
-
                         <div class="displayport ui center aligned segment">
                             test
                         </div>
-
               </div>
               <div class = "four wide column">
                     <div class="ui center aligned">
-                            <span> <i class="random icon huge" id = "shuffleIcon"></i><br>
-                              <input id="btnShuffle" type="button" value="Shuffle">
-                            </span>
+                         <i id="btnShuffle" class="circular random icon huge link" id = "shuffleIcon" data-content="Random" data-variation="inverted"></i>
                   </div>
 
               </div>
       </div>
      
          <div class="center aligned row"> 
-            <div class="fourteen wide column">
+            <div class="sixteen wide column">
 
               <div class="ui center aligned">
-                  <span> <i class="heart icon huge red"></i><br>
-                        <input id="btnFavorite" type="button" value="Favorite">
-                  </span>
+                  <i id="btnFavorite" class="heart icon huge red link" data-content="Save this in favorites" data-variation="inverted"></i>
               </div>
 
             </div>
         </div>  
 </div>   
-
-
-
-<script type="text/javascript">
-
-  $(document).ready(function() {
-    //feel free to change this later to incorporate the differnt settings, right now everything is just kept in a list
-    var playlist = ['journal1', 'video1', 'music1', 'binaural1', 'relaxation1', 'tips1']
-    var favorites = [];
-    var backStack = [];
-    var forwardStack = [];
-    var journalEntries = ["3/29 had a good night's sleep!"];
-    document.getElementById('btnBack').disabled = true;
-
-    //not really functional as of now, used for testing purposes only
-    $('#btnLogin').click(function(e) {
-      //initializes playlist
-      //localStorage.setItem('playlist', JSON.stringify(defaultPlaylist));
-      window.alert('Successful login! Current playlist: ' + JSON.stringify(playlist));
-      document.getElementById('btnLogin').disabled = true;
-      //window.location.href = 'login.html';
-    });
-
-    $('#btnMyFavorites').click(function(e) {
-      document.getElementById('content').innerHTML = '';
-      var content = document.createElement('div');
-      content.innerHTML = "<h2>My Favorites</h2>";
-      content.innerHTML += JSON.stringify(favorites);
-      document.getElementById('content').appendChild(content);
-      //window.location.href = 'favorites.html'; 
-      document.getElementById('btnFavorite').disabled = true;
-    });
-
-    $('#btnMySettings').click(function(e) {
-      document.getElementById('content').innerHTML = '';
-      var content = document.createElement('div');
-      content.innerHTML = "<h2>My Settings</h2> Current Playlist: <br>";
-      content.innerHTML += JSON.stringify(playlist);
-      document.getElementById('content').appendChild(content);
-      //window.location.href = 'settings.html';  
-      document.getElementById('btnFavorite').disabled = true;
-    });
-
-    $('#btnMyJournal').click(function(e) {
-       document.getElementById('content').innerHTML = '';
-       var content = document.createElement('div');
-       content.innerHTML = "<h2>My Journal Entries</h2>";
-       content.innerHTML += JSON.stringify(journalEntries);
-       document.getElementById('content').appendChild(content);
-       document.getElementById('btnFavorite').disabled = true;
-    });
-
-
-    $('#btnShuffle').click(function(e) {
-      document.getElementById('content').innerHTML = '';
-      document.getElementById('btnBack').disabled = false;
-      document.getElementById('btnFavorite').disabled = false;
-
-      //goes forward instead of shuffle if there's stuff in forward stack
-      if (forwardStack.length > 0) {
-        console.log(forwardStack);
-        contentName = forwardStack.pop();
-        backStack.push(contentName);
-        content = getContent(contentName);
-        document.getElementById('content').appendChild(content);
-        if (forwardStack.length == 0) {
-          //changes forward button to shuffle button
-          document.getElementById('btnShuffle').value = "Shuffle";
-          document.getElementById('shuffleIcon').className = "random icon"
-        }
-      }
-
-      //shuffle
-      else {
-        //playlist is hard-coded for now
-        var playlist = ['journal1', 'video1', 'music1', 'binaural1', 'relaxation1', 'tips1']
-        //randomly choose from playlist
-        index = Math.floor(Math.random() * playlist.length);
-
-        content = getContent(playlist[index]);
-        backStack.push(playlist[index]);  //stores in back history
-        console.log(backStack);
-        document.getElementById('content').appendChild(content);
-      }
-    });
-
-
-    $('#btnBack').click(function(e) { 
-      document.getElementById('btnFavorite').disabled = false;
-      document.getElementById('content').innerHTML = '';
-      popped = backStack.pop();
-      if (backStack.length > 0) {
-        contentName = backStack[backStack.length-1];
-      } else {  
-        contentName = 'default';
-        document.getElementById('btnBack').disabled = true;
-      }
-      forwardStack.push(popped);
-      content = getContent(contentName);
-      console.log(contentName);
-      document.getElementById('content').appendChild(content);
-      //changes shuffle to forward
-      document.getElementById('btnShuffle').value = "Forward";
-      document.getElementById('shuffleIcon').className = "arrow right icon"
-    });
-
-
-    $('#btnFavorite').click(function(e) {
-      if (backStack.length > 0) {
-        favorites.push(backStack[backStack.length-1]);
-      } else {
-        favorites.push('new journal entry');
-      }
-      console.log(favorites);
-      document.getElementById('btnFavorite').disabled = true;
-    });
-
-
-    //submits and saves new journal entry
-    $('#btnSubmit').click(function(e) {
-      console.log('clicked');
-      var entry = document.getElementById('entry').value;
-      //gets current date
-      var date = new Date().getDate();
-      var month = new Date().getMonth()+1;
-      journalEntries.push(month + '/' + + date + ' ' + entry);
-      window.alert('Successfully saved journal entry!');
-      document.getElementById('btnSubmit').disabled = true;
-    });
-
-
-    //given a content's name, returns the HTML of the content
-    getContent = function(contentName) {
-      var content = document.createElement('div');
-      if (contentName == 'journal1') {
-        content.innerHTML = "<h2>Journal Entry</h2> I can't sleep because I'M HANGRY >:[";
-      }
-      else if (contentName == 'video1') {
-        content.innerHTML = "<h2>Video</h2> <iframe width='444' height='250' src='https://www.youtube.com/embed/wFYcAAK_LEw?'> </iframe>";
-      }
-      else if (contentName == 'music1') {
-        content.innerHTML = "<h2>Music</h2> <iframe width='444' height='250' src='https://www.youtube.com/embed/wQA1zJmMN2U?'> </iframe>";
-      }
-      else if (contentName == 'binaural1') {
-        content.innerHTML = "<h2>Binaural Beats</h2> <iframe width='444' height='250' src='https://www.youtube.com/embed/1l13TSFrNgM?'> </iframe>";
-      }
-      else if (contentName == 'relaxation1') {
-        content.innerHTML = "<h2>Relaxation</h2> Close your eyes and notice your breathing. Turn all your attention to your natural breathing pattern and feel the air enter and leave your nose or mouth.";
-      }
-      else if (contentName == 'tips1') {
-        content.innerHTML = "<h2>Tips & Quotes</h2> Don't eat too much food before you go to bed!";
-      }
-      else {  //default
-        content.innerHTML = "<h2>Journal Entry</h2> What's on your mind?<br> <input id='entry' type='text' value='Begin Typing' autofocus><br> <input id='btnSubmit' type='button' value='Submit'> ";
-      }
-      return content;
-    }
-
-
-  });
-
-</script>
-
 
 
 </body>
