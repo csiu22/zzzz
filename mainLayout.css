@@ -24,3 +24,9 @@ object{
   margin-left:0;
   margin-top:0;
 }
+
+.verticalcenter {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
