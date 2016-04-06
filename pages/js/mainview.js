@@ -29,7 +29,8 @@ var loadButtons = function(){
             console.log(entry);
             my_journal[my_journal.length-1]["text"] = entry;
             console.log("updated journal length " + my_journal.length)
-          } );
+            document.getElementById("saveMessage").style.display = "block";
+          });
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
             document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
