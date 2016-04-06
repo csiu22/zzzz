@@ -5,7 +5,7 @@
     categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"]
     disabled_categories = [];
     favorites = [];
-    journal_entries = [];
+    my_journal = [];
     backStack = [];
     forwardStack = [];
     playList = [];
@@ -24,7 +24,6 @@ var playContent = function(content){
       console.log(backStack);
       console.log(forwardStack);
 
-
       if(content.type === "video"){
 
         /*
@@ -38,9 +37,14 @@ var playContent = function(content){
           /*
             display editable journal entry
           */
-          insert = "<h2>"+ content.title+"</h2>";
+          insert = "<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
+                  // '<textarea autofocus> </textarea>'+
+                   '<textarea id="response"> </textarea>' +
 
-
+                   //'<div class="ui form" id="response2"> <div class="field" id="response"> <textarea rows="2"></textarea> </div> </div>' +
+                   '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save </button>' +
+                   '<br><button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> My Journal </button>' ;
+          my_journal.push({title:content.title, type:"journal", text:""})
       } else if(content.type === "tips_quotes"){
             //display tips and quotes
             insert = "<h2>"+ content.title+"</h2>";
@@ -58,6 +62,8 @@ var playContent = function(content){
 var shuffle = function(){
         category_index = Math.floor(Math.random() * categories.length);
         category = categories[category_index];
+        //Linda debugging
+        category="journalEntries";
         content = getContent(category);
         playContent(content);
         if(currentlyPlaying) backStack.push(currentlyPlaying);

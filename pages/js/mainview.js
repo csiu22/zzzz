@@ -13,7 +13,19 @@ var loadButtons = function(){
 
           $('#btnMyJournal').click(function(e) {
               document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
+              load_journal();
           });
+
+          /* btnSaveEntry is statically created so needs to be like this. */
+          $(document).on( "click" , "#btnSaveEntry" , function(e){
+            var entry = document.getElementById("response").value;
+            console.log(entry);
+            my_journal[my_journal.length-1]["text"] = entry;
+          } );
+
+          $(document).on( "click" , "#btnPastEntries" , function(e){
+            document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
+          } );
 
 
           $('#btnLogin').click(function(e) {
