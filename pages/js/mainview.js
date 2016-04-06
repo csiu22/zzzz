@@ -2,18 +2,18 @@ var loadButtons = function(){
 
 
           $('#btnMyFavorites').click(function(e) {
-          document.getElementById("content").innerHTML='<object type="text/html" data="pages/favorites.html" ></object>'; 
+          document.getElementById("content").innerHTML='<object type="text/html" data="pages/favorites.html" ></object>';
            load_favorites();
           });
 
           $('#btnMySettings').click(function(e) {
-            document.getElementById("content").innerHTML='<object type="text/html" data="pages/settings.html" ></object>';  
+            document.getElementById("content").innerHTML='<object type="text/html" data="pages/settings.html" ></object>';
             load_settings();
           });
 
           $('#btnMyJournal').click(function(e) {
-              document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal/settings.html" ></object>'; 
-          }); 
+              document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
+          });
 
 
           $('#btnLogin').click(function(e) {
@@ -44,7 +44,7 @@ var loadButtons = function(){
           });
 
 
-          $('#btnBack').click(function(e) { 
+          $('#btnBack').click(function(e) {
             if (backStack.length === 0) document.getElementById('btnBack').disabled = true;
             else document.getElementById('btnBack').disabled = false;
             playBack();
