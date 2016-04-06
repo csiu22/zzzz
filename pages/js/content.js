@@ -13,7 +13,8 @@ var loadContent = function(){
 	];
 
 	totalContent["journalEntries"] = [
-	{title:"test journal entry", type:"journal", text:""},
+	{title:"What's on your mind?", type:"journal", text:""},
+	{title:"What would you like to wake up thinking about tomorrow morning?", type:"journal", text:""},
 
 	];
 

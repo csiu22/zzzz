@@ -5,6 +5,7 @@
     categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"]
     disabled_categories = [];
     favorites = [];
+    journal_entries = [];
     backStack = [];
     forwardStack = [];
     playList = [];
@@ -14,7 +15,7 @@
     loadContent();
     currentlyPlaying = null; // let's create welcome content for the first screen
     playContent(welcome_content);
-  
+
     loadButtons();
 });
 
@@ -22,10 +23,10 @@
 var playContent = function(content){
       console.log(backStack);
       console.log(forwardStack);
-  
+
 
       if(content.type === "video"){
-          
+
         /*
             display embedded video player
         */
@@ -33,26 +34,24 @@ var playContent = function(content){
       insert = "<h2>"+ content.title+"</h2> </br> "+
                 "<iframe width='444' height='250' src='"+content.url+"' frameborder='0' allowfullscreen> </iframe>";
 
-      }else if(content.type === "journal"){
-        
+      } else if (content.type === "journal"){
           /*
             display editable journal entry
-          */  
+          */
           insert = "<h2>"+ content.title+"</h2>";
 
-      }
-      else if(content.type === "tips_quotes"){
+
+      } else if(content.type === "tips_quotes"){
             //display tips and quotes
             insert = "<h2>"+ content.title+"</h2>";
-      }
-      else{
+      } else{
             //throw error
       }
 
       /*
         until this is developed further
       */
-      document.getElementById("content").innerHTML=insert; 
+      document.getElementById("content").innerHTML=insert;
 
 }
 
@@ -62,7 +61,7 @@ var shuffle = function(){
         content = getContent(category);
         playContent(content);
         if(currentlyPlaying) backStack.push(currentlyPlaying);
-        currentlyPlaying = content; 
+        currentlyPlaying = content;
 }
 
 var playNext = function(){
