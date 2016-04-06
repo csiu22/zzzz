@@ -19,24 +19,46 @@
 });
 
 
+var getIcon = function(category) {
+  if (category === "video") {
+    return "video play";
+  } else if (category === "journal") {
+    return "edit";
+  } else if (category == "tips_quotes") {
+    return "newspaper";
+  }
+
+}
+
+
 var playContent = function(content){
       console.log(backStack);
       console.log(forwardStack);
 
+      if (content.type === "welcome") {
+        insert = '<h2 class="ui header"> <div class="content">'+ content.title + '</div> </h2>' +
+                 '<div> Scroll mindlessly to your heart\'s content. </div>' ;
+        document.getElementById("content").innerHTML=insert;
+        return;
+      }
+
+      insert = '<h2 class="ui header"> <i class="' + getIcon(content.type) + ' icon"></i> <div class="content">'+ content.title + '</div> </h2>';
       if(content.type === "video"){
 
         /*
             display embedded video player
         */
 
-      insert = "<h2>"+ content.title+"</h2> </br> "+
+      insert += //"<h2>"+ content.title+"</h2> </br> "+
+                //'<h2 class="ui header"> <i class="edit icon"></i> <div class="content">'+ content.title + '</div> </h2>' +
                 "<iframe width='444' height='250' src='"+content.url+"' frameborder='0' allowfullscreen> </iframe>";
 
       } else if (content.type === "journal"){
           /*
             display editable journal entry
           */
-          insert = "<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
+          insert += //"<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
+                   //'<h2 class="ui header"> <i class="edit icon"></i> <div class="content">'+ content.title + '</div> </h2>' +
                   // '<textarea autofocus> </textarea>'+
                    //'<textarea id="response"> </textarea>' +
 
@@ -47,7 +69,7 @@ var playContent = function(content){
           my_journal.push({title:content.title, type:"journal", text:""})
       } else if(content.type === "tips_quotes"){
             //display tips and quotes
-            insert = "<h2>"+ content.title+"</h2>";
+            //insert = "<h2>"+ content.title+"</h2>";
       } else{
             //throw error
       }
