@@ -11,7 +11,6 @@
     playList = [];
     totalContent = {};
 
-
     loadContent();
     currentlyPlaying = null; // let's create welcome content for the first screen
     playContent(welcome_content);

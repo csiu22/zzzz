@@ -13,7 +13,7 @@ var loadButtons = function(){
 
           $('#btnMyJournal').click(function(e) {
               document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
-              //load_journal();
+              load_journal();
           });
 
           /* btnSaveEntry is statically created so needs to be like this. */
@@ -21,6 +21,7 @@ var loadButtons = function(){
             var entry = document.getElementById("response").value;
             console.log(entry);
             my_journal[my_journal.length-1]["text"] = entry;
+            console.log("updated journal length " + my_journal.length)
           } );
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
