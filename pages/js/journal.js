@@ -1,13 +1,17 @@
+// This page is not currently being used, will be needed for GR5
+/*
 var load_journal = function() {
   my_journal.forEach(function(entry) {
     temp = document.createElement('div');
     temp.className = 'entry';
     temp.innerHTML = entry;
-    document.getElementsByTagName('body')[0].appendChild(temp);
+    document.getElementById('journal').appendChild(temp);
   });
 };
+*/
 
 /*
+// Below are Angular things when we start using it
 //var my_journal = [];
 var get_journal = function() {
   return my_journal;

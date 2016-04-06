@@ -1,6 +1,5 @@
 var loadButtons = function(){
 
-
           $('#btnMyFavorites').click(function(e) {
           document.getElementById("content").innerHTML='<object type="text/html" data="pages/favorites.html" ></object>';
            load_favorites();
@@ -12,9 +11,17 @@ var loadButtons = function(){
           });
 
           $('#btnMyJournal').click(function(e) {
+              //load_journal();
               document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
-              load_journal();
+
+              // We will need to switch to angular or something to get below to work >.>
+              //$('.sortable.table').tablesort();
+
           });
+
+          var f = function() {
+            console.log("derp");
+          }
 
           /* btnSaveEntry is statically created so needs to be like this. */
           $(document).on( "click" , "#btnSaveEntry" , function(e){

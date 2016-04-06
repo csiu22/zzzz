@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 	<script type="text/javascript" src="../main.js"></script>
+  <link rel="stylesheet" href="journal.css">
 	<script type="text/javascript" src="js/journal.js"></script>
 
 </head>
@@ -25,14 +26,38 @@
 <body>
 	<h1>
 		My Journal Entries
-    <div id = "journal">
-
-    <div>
-
 	</h1>
-<!--
-<journal class="main-content"></journal>
--->
+  <div id = "journal">
+
+  <!--
+  sortable doesn't currently work
+  <table class="ui sortable striped table">
+  -->
+  <table class="ui striped table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Entry</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="entry3" onclick="f()">
+        <td class="date">3/4/2016</td>
+        <td>I want to wake up thinking about puppies and butterflies.</button></td>
+      <tr id="entry2">
+        <td class="date">2/28/2016</td>
+        <td>I can't sleep because I'm HANGRY >:[ </td>
+      </tr>
+      <tr id="entry1">
+        <td class="date">2/14/2016</td>
+        <td>A dog is barking outside, and it is keeping me awake D:</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
 </body>
 
 </html>
