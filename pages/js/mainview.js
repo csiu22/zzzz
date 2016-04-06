@@ -13,7 +13,7 @@ var loadButtons = function(){
 
           $('#btnMyJournal').click(function(e) {
               document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
-              load_journal();
+              //load_journal();
           });
 
           /* btnSaveEntry is statically created so needs to be like this. */
