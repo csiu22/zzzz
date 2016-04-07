@@ -6,8 +6,14 @@ var loadButtons = function(){
           });
 
           $('#btnMySettings').click(function(e) {
-            document.getElementById("content").innerHTML='<object type="text/html" data="pages/settings.html" ></object>';
-            load_settings();
+                  var settingsVar = load_settings();
+                  document.getElementById('content').innerHTML = '';
+                  var content = document.createElement('div');
+                  content.innerHTML = settingsVar;
+                  document.getElementById('content').appendChild(content);
+                  //window.location.href = 'settings.html';  
+                  document.getElementById('btnFavorite').disabled = true;
+                  settings_functions();
           });
 
           $('#btnMyJournal').click(function(e) {
@@ -18,10 +24,6 @@ var loadButtons = function(){
               //$('.sortable.table').tablesort();
 
           });
-
-          var f = function() {
-            console.log("derp");
-          }
 
           /* btnSaveEntry is statically created so needs to be like this. */
           $(document).on( "click" , "#btnSaveEntry" , function(e){
@@ -38,8 +40,8 @@ var loadButtons = function(){
 
 
           $('#btnLogin').click(function(e) {
-
-
+                    window.alert('Successful login!');
+                    document.getElementById('btnLogin').disabled = true;
           });
 
           $('#btnShuffle').click(function(e) {
