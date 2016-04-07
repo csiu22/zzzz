@@ -2,7 +2,7 @@
 
     //global variables for the entire app
 
-    categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"]
+    categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"];
     disabled_categories = [];
     favorites = [];
     my_journal = [];
@@ -12,8 +12,8 @@
     totalContent = {};
 
     loadContent();
-    currentlyPlaying = null; // let's create welcome content for the first screen
-    playContent(welcome_content);
+    currentlyPlaying = welcome_content; // let's create welcome content for the first screen
+    playContent(currentlyPlaying);
 
     loadButtons();
 });
@@ -32,9 +32,7 @@ var getIcon = function(category) {
 
 
 var playContent = function(content){
-      console.log(backStack);
-      console.log(forwardStack);
-
+ 
       if (content.type === "welcome") {
         insert = '<h2 class="ui header"> <div class="content">'+ content.title + '</div> </h2>' +
                  '<div> Scroll mindlessly to your heart\'s content. </div>' ;
@@ -62,11 +60,11 @@ var playContent = function(content){
                   // '<textarea autofocus> </textarea>'+
                    //'<textarea id="response"> </textarea>' +
 
-                   '<div class="ui form" id="response2"> <div class="field" id="response"> <textarea rows="2"></textarea> </div> </div>' +
+                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2"></textarea> </div> </div>' +
                    '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save </button>' +
                    '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
-          my_journal.push({title:content.title, type:"journal", text:""})
+
       } else if(content.type === "tips_quotes"){
             //display tips and quotes
             //insert = "<h2>"+ content.title+"</h2>";

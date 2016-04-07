@@ -17,25 +17,33 @@ var loadButtons = function(){
           });
 
           $('#btnMyJournal').click(function(e) {
-              //load_journal();
-              document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
-
-              // We will need to switch to angular or something to get below to work >.>
-              //$('.sortable.table').tablesort();
-
+              loadJournalPage();
           });
+
+          var loadJournalPage = function(){
+                  var journalVar = loadJournal();
+                  document.getElementById('content').innerHTML = '';
+                  var content = document.createElement('div');
+                  content.innerHTML = journalVar;
+                  document.getElementById('content').appendChild(content);
+                  document.getElementById('btnFavorite').disabled = true;
+                  journal_functions();
+          };
 
           /* btnSaveEntry is statically created so needs to be like this. */
           $(document).on( "click" , "#btnSaveEntry" , function(e){
             var entry = document.getElementById("response").value;
-            console.log(entry);
-            my_journal[my_journal.length-1]["text"] = entry;
-            console.log("updated journal length " + my_journal.length)
+            var temp_entry = {};
+            temp_entry["text"] = entry;
+            temp_entry["date"] = new Date(); 
+            my_journal.unshift(temp_entry);
+            console.log(my_journal);
             document.getElementById("saveMessage").style.display = "block";
+          
           });
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
-            document.getElementById("content").innerHTML='<object type="text/html" data="pages/journal.html" ></object>';
+              loadJournalPage();
           } );
 
 
