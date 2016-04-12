@@ -1,3 +1,15 @@
+
+/*if we want to add filters at some point
+
+html {
+ 
+  filter: brightness(0.5) sepia(0.5);
+  -o-filter: brightness(0.5) sepia(0.5);
+  -ms-filter: brightness(0.5) sepia(0.5);
+  -moz-filter: brightness(0.5) sepia(0.5);
+  -webkit-filter: brightness(0.5) sepia(0.5);
+}*/
+
 #displayport {
 	height: 60%;
 }
@@ -30,3 +42,5 @@ object{
   top: 50%;
   transform: translateY(-50%);
 }
+
+

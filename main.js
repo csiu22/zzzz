@@ -67,7 +67,8 @@ var playContent = function(content){
 
       } else if(content.type === "tips_quotes"){
             //display tips and quotes
-            //insert = "<h2>"+ content.title+"</h2>";
+            insert = "<h2>"+ content.title+"</h2>";
+            insert += "<br><h4>"+ content.text + "<h4>";
       } else{
             //throw error
       }

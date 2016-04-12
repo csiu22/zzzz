@@ -4,12 +4,15 @@ var loadContent = function(){
 
 	totalContent["ASMR"] = [
 	{title:"Foam recorder wrapped in plastic foil", type:"video", url:"https://youtube.com/embed/uggv0LNHPRM?list=PLCStOTQcjfZuJu1WS1OSfe8Stq5j5L6KW"},
+	{title:"Wood Carving", type:"video", url:"https://www.youtube.com/embed/sEbx6qBgmTY?list=PLCStOTQcjfZuJu1WS1OSfe8Stq5j5L6KW"},
+	{title:"Just for Sleeping", type:"video", url:"https://www.youtube.com/embed/xnL_UU5wlI0?list=PLCStOTQcjfZuJu1WS1OSfe8Stq5j5L6KW"},
 
 	];
 
 	totalContent["binauralBeats"] = [
 	{title:"Deep Sleep - Isochronic Binaural Beats", type:"video", url:"https://youtube.com/embed/1l13TSFrNgM?list=PLCStOTQcjfZs6Xncqbi-zsrQzk5ohkcj5"},
-
+	{title:"Rain Sleep", type:"video", url:"https://www.youtube.com/embed/xkyRNPd_lgs?list=PLCStOTQcjfZs6Xncqbi-zsrQzk5ohkcj5"},
+	{title:"5 Hours Sleep", type:"video", url:"https://www.youtube.com/embed/6SC93Euiom4?list=PLCStOTQcjfZs6Xncqbi-zsrQzk5ohkcj5"},
 	];
 
 	totalContent["journalEntries"] = [
@@ -25,11 +28,19 @@ var loadContent = function(){
 
 	totalContent["relaxation"] = [
 	{title:"Guided Meditation for Sleep... Floating Amongst the Stars", type:"video", url:"https://youtube.com/embed/N4qCFFBrrgk?list=PLCStOTQcjfZuyjUpKBBFz8uyh01GqrpnP"},
+	{title:"Simple Relaxation", type:"video", url:"https://www.youtube.com/embed/OoM57Z8dRUY?list=PLCStOTQcjfZuyjUpKBBFz8uyh01GqrpnP"},
+	{title:"Breathing Meditation", type:"video", url:"https://www.youtube.com/embed/7wFX9Wn70eM?list=PLCStOTQcjfZuyjUpKBBFz8uyh01GqrpnP"},
+	{title:"Into Deep Sleep", type:"video", url:"https://www.youtube.com/embed/9BfSGt1w3Ss?list=PLCStOTQcjfZuyjUpKBBFz8uyh01GqrpnP"},
 
 	];
 
 	totalContent["tips_quotes"] = [
-	{title:"test tip", type:"tips_quotes", text:"", location:""},
+	{title:"Charles M. Schulz", type:"tips_quotes", text:"\"Sometimes I lie awake at night and I ask \"Where have I gone wrong?\" Then a voice says to me, \"This is going to take more than one night\" \"", location:""},
+	{title:"James Keller", type:"tips_quotes", text:"\" It is better to light one candle than to curse the darkness \"", location:""},
+	{title:"C.S Lewis", type:"tips_quotes", text:"\" Many things -- such as loving, going to sleep, or behaving unaffectedly, are done worst when we try hardest to do them. \"", location:""},
+	{title:"Charles de Lint", type:"tips_quotes", text:"\" You can't stand up to the night until you understand what's hiding in its shadows \"", location:""},
+	{title:"Samuel Butler", type:"tips_quotes", text:"\" Life is one long process of getting tired \"", location:""},
+
 
 	];
 
