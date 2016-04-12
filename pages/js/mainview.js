@@ -1,8 +1,11 @@
 var loadButtons = function(){
 
           $('#btnMyFavorites').click(function(e) {
-          document.getElementById("content").innerHTML='<object type="text/html" data="pages/favorites.html" ></object>';
-           load_favorites();
+            var favVar = load_favorites();
+            document.getElementById('content').innerHTML = '';
+            var content = document.createElement('div');
+            content.innerHTML = favVar;
+            document.getElementById('content').appendChild(content);
           });
 
           $('#btnMySettings').click(function(e) {
@@ -11,7 +14,7 @@ var loadButtons = function(){
                   var content = document.createElement('div');
                   content.innerHTML = settingsVar;
                   document.getElementById('content').appendChild(content);
-                  //window.location.href = 'settings.html';  
+                  //window.location.href = 'settings.html';
                   document.getElementById('btnFavorite').disabled = true;
                   settings_functions();
           });
@@ -35,11 +38,11 @@ var loadButtons = function(){
             var entry = document.getElementById("response").value;
             var temp_entry = {};
             temp_entry["text"] = entry;
-            temp_entry["date"] = new Date(); 
+            temp_entry["date"] = new Date();
             my_journal.unshift(temp_entry);
             console.log(my_journal);
             document.getElementById("saveMessage").style.display = "block";
-          
+
           });
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
