@@ -14,14 +14,14 @@ var load_favorites = function() {
   favVar += "  </thead>";
   favVar += "  <tbody>";
 
-  for (i = 0; i < my_fav.length; i++) {
-    var entry = my_fav[i];
+  for (i = 0; i < favorites.length; i++) {
+    var entry = favorites[i];
 
     favVar += "    <tr id=\"entry" + (i+1) +"\">";
-    favVar += "      <td>"+ entry.order + "</td>";
+    favVar += "      <td>"+ entry + "</td>";
     favVar += "      <td>"+ entry.title + "</td>";
     favVar += "      <td>"+ entry.category + "</td>";
-    favVar += "      <td class=\"date\">"+ (Number(entry.date.getMonth())+1)+"/"+entry.date.getDate()+"/"+entry.date.getFullYear()+"</td>";
+    // favVar += "      <td class=\"date\">"+ (Number(entry.date.getMonth())+1)+"/"+entry.date.getDate()+"/"+entry.date.getFullYear()+"</td>";
     favVar += "      </tr>";
   }
 
