@@ -64,11 +64,11 @@ var loadButtons = function(){
               playNext();
                 if (forwardStack.length == 0) {
                 document.getElementById('btnShuffle').value = "Shuffle";
-                document.getElementById('btnShuffle').className = "circular random icon huge link"
+                document.getElementById('btnShuffle').className = "verticalcenter circular random icon huge link"
               }
               else{
                 document.getElementById('btnShuffle').value = "Next";
-                document.getElementById('btnShuffle').className = "circular arrow right icon huge link"
+                document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
               }
             }
 
@@ -84,7 +84,7 @@ var loadButtons = function(){
             playBack();
             //changes shuffle to forward
             document.getElementById('btnShuffle').value = "Forward";
-            document.getElementById('btnShuffle').className = "circular arrow right icon huge link"
+            document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
           });
 
 

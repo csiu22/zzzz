@@ -2,7 +2,7 @@
 /*if we want to add filters at some point
 
 html {
- 
+
   filter: brightness(0.5) sepia(0.5);
   -o-filter: brightness(0.5) sepia(0.5);
   -ms-filter: brightness(0.5) sepia(0.5);
@@ -38,9 +38,7 @@ object{
 }
 
 .verticalcenter {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  top: -50%;
 }
 
 
