@@ -89,12 +89,11 @@ var loadButtons = function(){
 
 
           $('#btnFavorite').click(function(e) {
-              /*
-                  This needs to be fixed to prevent favoriting the same thing multiple times
-              */
-
               if(currentlyPlaying){
-                favorites.push(currentlyPlaying);
+                if (!(currentlyPlaying.title in fav_dict)) {
+                  fav_dict[currentlyPlaying.title] = 0;
+                  favorites.push(currentlyPlaying);
+                }
               }
 
           });

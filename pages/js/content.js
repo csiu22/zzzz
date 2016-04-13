@@ -65,32 +65,4 @@ var loadContent = function(){
 	tmp.setDate(14);
 	tmp.setYear(2016);
 	my_journal.push({"date": tmp,  "text": "A dog is barking outside, and it is keeping me awake D:"});
-
-	// my_fav = [];
-	// tmp = (new Date())
-	// tmp.setMonth(3);
-	// tmp.setDate(4);
-	// tmp.setYear(2016);
-	// my_fav.push({"date": tmp, "order": 1, "title": "What's On Your Mind?", "category": "Journal"});
-	// tmp = (new Date())
-	// tmp.setMonth(3);
-	// tmp.setDate(5);
-	// tmp.setYear(2016);
-	// my_fav.push({"date": tmp, "order": 2, "title": "Eating Times", "category": "Tips/Quotes"});
-	// tmp = (new Date())
-	// tmp.setMonth(3);
-	// tmp.setDate(7);
-	// tmp.setYear(2016);
-	// my_fav.push({"date": tmp, "order": 3, "title": "Stretch Your Neck", "category": "Relaxation"});
-	// tmp = (new Date())
-	// tmp.setMonth(3);
-	// tmp.setDate(3);
-	// tmp.setYear(2016);
-	// my_fav.push({"date": tmp, "order": 4, "title": "ASMR - Whispering", "category": "Videos"});
-	// tmp = (new Date())
-	// tmp.setMonth(3);
-	// tmp.setDate(3);
-	// tmp.setYear(2016);
-	// my_fav.push({"date": tmp, "order": 4, "title": "ASMR - Whispering", "category": "Videos"});
-
 }

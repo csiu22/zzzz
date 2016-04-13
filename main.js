@@ -5,6 +5,7 @@
     categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"];
     disabled_categories = [];
     favorites = [];
+    fav_dict = {};
     my_journal = [];
     backStack = [];
     forwardStack = [];
@@ -32,7 +33,7 @@ var getIcon = function(category) {
 
 
 var playContent = function(content){
- 
+
       if (content.type === "welcome") {
         insert = '<h2 class="ui header"> <div class="content">'+ content.title + '</div> </h2>' +
                  '<div> Scroll mindlessly to your heart\'s content. </div>' ;
