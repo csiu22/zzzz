@@ -38,7 +38,13 @@ object{
 }
 
 .verticalcenter {
+  position: relative;
   top: -50%;
+  transform: translateY(110%);
 }
 
+thead {
+    top: 0;
+    left: 0;
+}
 
