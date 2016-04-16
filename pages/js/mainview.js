@@ -99,6 +99,13 @@ var loadButtons = function(){
                 }
               }
 
+
+            $(this).toggleClass('empty');
+
+            // $(this).find('i').toggleClass('heart icon huge red link');
+            // $('#btnMyFavorites').remove();
+            // $("favRow").append("<i id=\"btnFavorite\" class=\"heart icon huge red link\"></i>");
+
           });
 
 $('.icon').popup({
