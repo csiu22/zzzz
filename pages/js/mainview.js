@@ -9,14 +9,9 @@ var loadButtons = function(){
           });
 
           $('#btnMySettings').click(function(e) {
-                  var settingsVar = load_settings();
-                  document.getElementById('content').innerHTML = '';
-                  var content = document.createElement('div');
-                  content.innerHTML = settingsVar;
-                  document.getElementById('content').appendChild(content);
-                  //window.location.href = 'settings.html';
-                  document.getElementById('btnFavorite').disabled = true;
                   settings_functions();
+                  $('#settingsModal').modal('show');
+                  
           });
 
           $('#btnMyJournal').click(function(e) {

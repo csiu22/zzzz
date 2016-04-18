@@ -1,90 +1,116 @@
-
-<!-- This HTML page is not currently used; all HTML is inserted into a div in settings.js
-Just keeping this for the future in case we decide to switch to angular -->
+<div id="settingsModal" class="ui small modal">
 
 
-<div>
+<h2 class="ui header">
+  <i class="settings icon"></i>
+  <div class="content">
+    Feed Settings
+    <div class="sub header">Manage what categories you want to see </div>
+  </div>
+</h2>
 
-<div class="ui accordion styled fluid">
-	 <div class="title">
-	 		<i class="dropdown icon"></i>
-		  <div class="ui toggle checkbox">
-		  	  <input type="checkbox" name="ASMR">
-		     	<label>ASMR</label>
+<div id="settingsbox" class="content ui stacked segments accordion styled ">
+
+	<div class="ui left aligned">
+		 <div class="title">
+		 		<i class="dropdown icon"></i>
+			  <div class="ui toggle checkbox" id="ASMR">
+			  	  <input type="checkbox" name="ASMR">
+			     	<label>ASMR</label>
+			  </div>
 		  </div>
-	  </div>
-	  <div class="content">
-	    <p>Description</p>
-	  </div>
+		  <div class="content">
+		    <p>Description</p>
+		  </div>
+	</div>
 
+	<div class="ui left aligned">
 	  <div class="title">
 	  	<i class="dropdown icon"></i>
-		   <div class="ui toggle checkbox">
-		  	  <input type="checkbox" name="binaural_Beats">
+		   <div class="ui toggle checkbox" id="binauralBeats">
+		  	  <input type="checkbox" name="binauralBeats">
 		     	<label>Binaural Beats</label>
 		  </div>
 	  </div>
 	  <div class="content">
 	    <p>Description</p>
 	  </div>
+	</div>
 
 
-	  <div class="title">
-	  	<i class="dropdown icon"></i>
-		   <div class="ui toggle checkbox">
-		  	  <input type="checkbox" name="journal_Entries">
-		     	<label>Journal Entries</label>
+	<div class="ui left aligned">
+		  <div class="title">
+		  	<i class="dropdown icon"></i>
+			   <div class="ui toggle checkbox" id="journalEntries">
+			  	  <input type="checkbox" name="journalEntries">
+			     	<label>Journal Entries</label>
+			  </div>
 		  </div>
-	  </div>
-	  <div class="content">
-	    <p>Description</p>
+		  <div class="content">
+		    <p>Description</p>
+		  </div>
+	</div>
+
+	<div class="ui left aligned">
+		  <div class="title">
+		  	<i class="dropdown icon"></i>
+			   <div class="ui toggle checkbox" id="music">
+			  	  <input type="checkbox" name="music">
+			     	<label>Music</label>
+			  </div>
+		  </div>
+		  <div class="content">
+		    <p>Description</p>
+		  </div>
+	</div>
+
+
+	<div class="ui left aligned">
+			 <div class="title">
+			  	<i class="dropdown icon"></i>
+				   <div class="ui toggle checkbox" id="relaxation">
+				  	  <input type="checkbox" name="relaxation">
+				     	<label>Relaxation Exercises</label>
+				  </div>
+			  </div>
+			  <div class="content">
+			    <p>Description</p>
+			  </div>
 	  </div>
 
-	  <div class="title">
-	  	<i class="dropdown icon"></i>
-		   <div class="ui toggle checkbox">
-		  	  <input type="checkbox" name="music">
-		     	<label>Music</label>
-		  </div>
-	  </div>
-	  <div class="content">
-	    <p>Description</p>
-	  </div>
 
-	 <div class="title">
-	  	<i class="dropdown icon"></i>
-		   <div class="ui toggle checkbox">
-		  	  <input type="checkbox" name="relaxation">
-		     	<label>Relaxation Exercises</label>
-		  </div>
-	  </div>
-	  <div class="content">
-	    <p>Description</p>
-	  </div>
+	  <div class="ui left aligned">
+			  <div class="title">
+			  	<i class="dropdown icon"></i>
+				   <div class="ui toggle checkbox" id="tips_quotes">
+				  	  <input type="checkbox" name="tips_quotes">
+				     	<label>Tips and Quotes</label>
+				  </div>
+			  </div>
+			  <div class="content">
+			    <p>Description</p>
+			  </div>
+		</div>
 
-	  <div class="title">
-	  	<i class="dropdown icon"></i>
-		   <div class="ui toggle checkbox">
-		  	  <input type="checkbox" name="tips_quotes">
-		     	<label>Tips and Quotes</label>
-		  </div>
-	  </div>
-	  <div class="content">
-	    <p>Description</p>
-	  </div>
-
-	  <div class="title">
-	  	<i class="dropdown icon"></i>
-		   <div class="ui toggle checkbox">
-		  	  <input type="checkbox" name="videos">
-		     	<label>Videos</label>
-		  </div>
-	  </div>
-	  <div class="content">
-	    <p>Description</p>
-	  </div>
+		<div class="ui left aligned">
+			  <div class="title">
+			  	<i class="dropdown icon"></i>
+				   <div class="ui toggle checkbox" id="videos">
+				  	  <input type="checkbox" name="videos">
+				     	<label>Videos</label>
+				  </div>
+			  </div>
+			  <div class="content">
+			    <p>Description</p>
+			  </div>
+		</div>
 </div>
 
-<button class="ui red button right floated" id="home">Home</button>
+		<div class="actions">
+				<div class="ui green approve button">
+						<i class="checkmark icon"></i>
+								Done
+				</div>
+		</div>
 
 </div>
