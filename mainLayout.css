@@ -1,14 +1,14 @@
-
-/*if we want to add filters at some point
-
 html {
 
-  filter: brightness(0.5) sepia(0.5);
-  -o-filter: brightness(0.5) sepia(0.5);
+/*  -o-filter: brightness(0.5) sepia(0.5);
   -ms-filter: brightness(0.5) sepia(0.5);
-  -moz-filter: brightness(0.5) sepia(0.5);
-  -webkit-filter: brightness(0.5) sepia(0.5);
-}*/
+  -moz-filter: brightness(0.5) sepia(0.5);*/
+
+  -webkit-filter: contrast(1.4) saturate(1.8) sepia(0.5) ;
+    filter: contrast(1.4) saturate(1.8) sepia(0.5) ;
+
+
+}
 
 #displayport {
 	height: 60%;
@@ -28,6 +28,9 @@ html {
 
 #content{
   overflow:auto;
+  border-radius: 10px;
+  border: 2px solid #b3b3b3;
+  padding: 20px; 
 }
 
 object{
