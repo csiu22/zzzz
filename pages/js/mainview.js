@@ -49,8 +49,7 @@ var loadButtons = function(){
 
 
           $('#btnLogin').click(function(e) {
-                    window.alert('Successful login!');
-                    document.getElementById('btnLogin').disabled = true;
+                     $('#loginModal').modal('show');
           });
 
           $('#btnShuffle').click(function(e) {
