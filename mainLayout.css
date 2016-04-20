@@ -30,7 +30,7 @@ html {
   overflow:auto;
   border-radius: 10px;
   border: 2px solid #b3b3b3;
-  padding: 20px; 
+  padding: 20px;
 }
 
 object{
@@ -55,3 +55,32 @@ thead {
     left: 0;
 }
 
+.stacked.icons{
+    position: relative;
+}
+
+.stacked.icons > .big.bottom.icon {
+  position: absolute;
+  font-size: 4em;
+}
+
+.stacked.icons > .big.top.right.attached.icon{
+    position: absolute;
+    left: 1.10em;
+    top: 0.30em;
+    font-size: 3.5em;
+}
+
+.stacked.icons > .attached.red.icon{
+     text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+         1px 1px 0 #fff;
+}
+
+.edit.icon {
+  position:relative;
+  left:1.5em;
+  top:0.2em;
+}
