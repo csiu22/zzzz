@@ -11,7 +11,7 @@ var loadButtons = function(){
           $('#btnMySettings').click(function(e) {
                   settings_functions();
                   $('#settingsModal').modal('show');
-                  
+
           });
 
           $('#btnMyJournal').click(function(e) {
@@ -72,6 +72,12 @@ var loadButtons = function(){
             else {
               shuffle();
             }
+
+            if (currentlyPlaying.title in fav_dict) {
+              $('#btnFavorite').removeClass('empty');
+            } else {
+              $('#btnFavorite').addClass('empty');
+            }
           });
 
 
@@ -82,6 +88,12 @@ var loadButtons = function(){
             //changes shuffle to forward
             document.getElementById('btnShuffle').value = "Forward";
             document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
+
+            if (currentlyPlaying.title in fav_dict) {
+              $('#btnFavorite').removeClass('empty');
+            } else {
+              $('#btnFavorite').addClass('empty');
+            }
           });
 
 
@@ -90,7 +102,13 @@ var loadButtons = function(){
                 if (!(currentlyPlaying.title in fav_dict)) {
                   fav_dict[currentlyPlaying.title] = 0;
                   favorites.push(currentlyPlaying);
+                } else {
+                  console.log("trying to unfav")
+                  var index = favorites.indexOf(currentlyPlaying);
+                  favorites.splice(index, 1);
+                  delete favorites[currentlyPlaying.title];
                 }
+
               }
 
 
