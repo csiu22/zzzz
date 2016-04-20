@@ -56,7 +56,8 @@ thead {
 }
 
 .stacked.icons{
-    position: relative;
+  position: relative;
+  right: 2em;
 }
 
 .stacked.icons > .big.bottom.icon {
@@ -81,6 +82,6 @@ thead {
 
 .edit.icon {
   position:relative;
-  left:1.5em;
+  left:1em;
   top:0.2em;
 }
