@@ -12,23 +12,21 @@ var loadButtons = function(){
 
           $('#btnMySettings').click(function(e) {
                   settings_functions();
-                  $('#settingsModal').modal('show');
-
           });
 
           $('#btnMyJournal').click(function(e) {
               loadJournalPage();
-              $('#journalModal').modal('show');
           });
 
           var loadJournalPage = function(){
-                  var journalVar = loadJournal();
-                  document.getElementById('journalContent').innerHTML = '';
-                  var content = document.createElement('div');
-                  content.innerHTML = journalVar;
-                  document.getElementById('journalContent').appendChild(content);
-                  //document.getElementById('btnFavorite').disabled = true;
-                  //journal_functions();
+              var journalVar = loadJournal();
+              document.getElementById('journalContent').innerHTML = '';
+              var content = document.createElement('div');
+              content.innerHTML = journalVar;
+              document.getElementById('journalContent').appendChild(content);
+              //document.getElementById('btnFavorite').disabled = true;
+              //journal_functions();
+              $('#journalModal').modal('show');
           };
 
           /* btnSaveEntry is statically created so needs to be like this. */

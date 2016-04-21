@@ -125,7 +125,7 @@ var settings_functions = function(){
     for(i=0; i<disabled_categories.length; i++){
         $("#" + disabled_categories[i]+"").checkbox('set unchecked');
     }
-    
+
 
 	$(".ui.toggle.checkbox").checkbox({
     onUnchecked: function() {
@@ -136,7 +136,7 @@ var settings_functions = function(){
     			categories.splice(index, 1);
 			}}
 		disabled_categories.push(setting);
-    }, 
+    },
 	onChecked: function() {
          var setting = $(this)[0].name;
     	var index = disabled_categories.indexOf(setting);
@@ -148,4 +148,5 @@ var settings_functions = function(){
     }});
 
 
+    $('#settingsModal').modal('show');
 }
