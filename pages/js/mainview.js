@@ -39,7 +39,7 @@ var loadButtons = function(){
             console.log(entry);
             console.log(my_journal);
             document.getElementById("saveMessage").style.display = "block";
-            document.getElementById("response").innerHTML = '';
+            document.getElementById("response").value = '';
           });
 
           $(document).on("click", "#response", function(){
