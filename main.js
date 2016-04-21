@@ -1,5 +1,6 @@
  $(document).ready(function() {
 
+    $(".dropdown").dropdown();
     //global variables for the entire app
     user = undefined
 

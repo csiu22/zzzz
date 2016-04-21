@@ -28,6 +28,7 @@
 
 
   <link rel="stylesheet" href="mainLayout.css">
+  <link rel="stylesheet" href="dropdown.css">
 
 </head>
 <body>
@@ -44,20 +45,23 @@
     <div class= "two wide column">
       <div id="topleft" class="item">
         <i id="btnLogin" class="sign in icon huge link" data-content="Login" data-variation="inverted"></i>
-        <h3 id="welcome" class="verticalcenter" style="display:none">
-          Hello,
-          <div class="ui dropdown">
-            <div class="text"> <span id="loggedInUser"> </span>! </div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="item">Logout</div>
+        <div id="welcome" class="verticalcenter" style="display:none">
+          <div class="ui horizontal list">
+            <div class="item">
+              Hello,
             </div>
+
+            <div class="item">
+              <div class="userDropdown">
+                <div class="dropbtn"> <span id="loggedInUser"></span> <i class="dropdown icon"></i> </div>
+                <div class="userDropdown-content">
+                  <div class="item" id="btnLogout"> <a href="#"> <i class="sign out icon small link"></i> Logout</a> </div>
+                </div>
+              </div>
+            </div>
+
           </div>
-        </h3>
-
-
-
-
+        </div>
       </div>
     </div>
 

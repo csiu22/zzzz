@@ -61,14 +61,20 @@ var loadButtons = function(){
           });
 
 
+          $('#btnLogout').click(function(e) {
+            console.log("logout");
+            document.getElementById("btnLogin").style.display = "block";
+            document.getElementById("welcome").style.display = "none";
+          });
+
           $(document).on( "click" , "#login" , function(e){
             user = document.getElementById("username").value;
             document.getElementById("loggedInUser").innerHTML = user;
             document.getElementById("btnLogin").style.display = "none";
             document.getElementById("welcome").style.display = "block";
+            $(".dropdown").dropdown();
             $('#loginModal').modal('hide');
           } );
-
 
           $('#btnShuffle').click(function(e) {
             document.getElementById('content').innerHTML = '';
