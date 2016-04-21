@@ -74,7 +74,8 @@ var loadButtons = function(){
             $('#loginModal').modal('hide');
           } );
 
-          $('#btnShuffle').click(function(e) {
+          //$('#btnShuffle').click(function(e) {
+          $(document).on("click", "#btnShuffle", function(e) {
             document.getElementById('content').innerHTML = '';
             document.getElementById('btnBack').disabled = false;
             document.getElementById('btnFavorite').disabled = false;
@@ -84,10 +85,14 @@ var loadButtons = function(){
                 if (forwardStack.length == 0) {
                 document.getElementById('btnShuffle').value = "Shuffle";
                 document.getElementById('btnShuffle').className = "verticalcenter circular random icon huge link"
+                document.getElementById("btnShuffle").setAttribute("data-content", "Shuffle");
               }
               else{
-                document.getElementById('btnShuffle').value = "Next";
-                document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
+                var btnShuffle = document.getElementById('btnShuffle');
+                btnShuffle.value = "Next";
+                btnShuffle.className = "verticalcenter circular arrow right icon huge link";
+                console.log("change to next");
+                btnShuffle.setAttribute("data-content", "Next");
               }
             }
 
@@ -110,6 +115,7 @@ var loadButtons = function(){
             //changes shuffle to forward
             document.getElementById('btnShuffle').value = "Forward";
             document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
+            document.getElementById("btnShuffle").setAttribute("data-content", "Next");
 
             if (currentlyPlaying.title in fav_dict) {
               $('#btnFavorite').removeClass('empty');
