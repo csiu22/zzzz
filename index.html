@@ -14,11 +14,12 @@
 <meta charset="UTF-8">
   <title>Zzzz</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
   <!--  <script type="text/javascript">"https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"</script> -->
-  <script type="text/javascript" src="semantic/semantic.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script type="text/javascript" src="main.js"></script>
-   <script type="text/javascript" src="pages/js/content.js"></script>
+  <script type="text/javascript" src="pages/js/content.js"></script>
 
   <script type="text/javascript" src="pages/js/mainview.js"></script>
   <script type="text/javascript" src="pages/js/favorites.js"></script>
@@ -26,7 +27,6 @@
   <script type="text/javascript" src="pages/js/journal.js"></script>
 
 
-  <link rel="stylesheet" href="semantic/semantic.min.css">
   <link rel="stylesheet" href="mainLayout.css">
 
 </head>
@@ -43,7 +43,21 @@
   <div id="displayport" class = "ui three column doubling stackable grid container">
     <div class= "two wide column">
       <div id="topleft" class="item">
-        <i id="btnLogin" class="add user icon huge link" data-content="Login" ></i>
+        <i id="btnLogin" class="sign in icon huge link" data-content="Login" data-variation="inverted"></i>
+        <h3 id="welcome" class="verticalcenter" style="display:none">
+          Hello,
+          <div class="ui dropdown">
+            <div class="text"> <span id="loggedInUser"> </span>! </div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">Logout</div>
+            </div>
+          </div>
+        </h3>
+
+
+
+
       </div>
     </div>
 
@@ -51,8 +65,8 @@
       <div class="ui horizontal list">
         <div class="item">
           <i class="stacked icons" id="btnMyFavorites">
-              <i class="big bottom link empty red heart icon" data-content="My Favorites" data-variation="inverted"></i>
-              <i class="big top right link empty red attached heart icon" data-content="My Favorites" data-variation="inverted"></i>
+              <i class="big bottom link red heart icon" data-content="My Favorites" data-variation="inverted"></i>
+              <i class="big top right link red attached heart icon"></i>
           </i>
         </div>
 
