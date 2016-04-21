@@ -64,8 +64,8 @@ var playContent = function(content){
                    //'<textarea id="response"> </textarea>' +
 
                    '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2"></textarea> </div> </div>' +
-                   '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save </button>' +
-                   '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> My Journal </button>' +
+                   '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
+                   '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
 
       } else if(content.type === "tips_quotes"){
