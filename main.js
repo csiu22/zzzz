@@ -104,7 +104,7 @@ var playNext = function(){
 var playBack = function(){
       content = backStack.pop();
       if(content){
-          forwardStack.push(content);
+          forwardStack.push(currentlyPlaying);
           playContent(content);
           currentlyPlaying = content;
       }
