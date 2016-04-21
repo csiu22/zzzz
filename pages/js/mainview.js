@@ -49,8 +49,18 @@ var loadButtons = function(){
 
 
           $('#btnLogin').click(function(e) {
-                     $('#loginModal').modal('show');
+              $('#loginModal').modal('show');
           });
+
+
+          $(document).on( "click" , "#login" , function(e){
+            user = document.getElementById("username").value;
+            document.getElementById("loggedInUser").innerHTML = user;
+            document.getElementById("btnLogin").style.display = "none";
+            document.getElementById("welcome").style.display = "block";
+            $('#loginModal').modal('hide');
+          } );
+
 
           $('#btnShuffle').click(function(e) {
             document.getElementById('content').innerHTML = '';

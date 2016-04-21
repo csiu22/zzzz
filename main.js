@@ -1,6 +1,7 @@
  $(document).ready(function() {
 
     //global variables for the entire app
+    user = undefined
 
     categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"];
     disabled_categories = [];
