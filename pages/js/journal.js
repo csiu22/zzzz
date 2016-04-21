@@ -120,16 +120,16 @@ return journalVar;
 
 }
 
-var journal_functions = function(){
+//var journal_functions = function(){
 //doesn't work without some plugin? mentioned on the semantic site
 //$('.sortable.table').tablesort();
 
-   $('#home').click(function(e) {
-            console.log("click");
-              playContent(currentlyPlaying);
-        });
+//   $('#home').click(function(e) {
+//            console.log("click");
+//              playContent(currentlyPlaying);
+//        });
 
-};
+//};
 
 
 

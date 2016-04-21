@@ -2,10 +2,12 @@ var loadButtons = function(){
 
           $('#btnMyFavorites').click(function(e) {
             var favVar = load_favorites();
-            document.getElementById('content').innerHTML = '';
+            console.log(favVar);
+            document.getElementById('favoritesContent').innerHTML = '';
             var content = document.createElement('div');
             content.innerHTML = favVar;
-            document.getElementById('content').appendChild(content);
+            document.getElementById('favoritesContent').appendChild(content);
+            $('#favoritesModal').modal('show');
           });
 
           $('#btnMySettings').click(function(e) {
@@ -26,7 +28,7 @@ var loadButtons = function(){
                   content.innerHTML = journalVar;
                   document.getElementById('journalContent').appendChild(content);
                   //document.getElementById('btnFavorite').disabled = true;
-                  journal_functions();
+                  //journal_functions();
           };
 
           /* btnSaveEntry is statically created so needs to be like this. */
@@ -36,8 +38,10 @@ var loadButtons = function(){
             temp_entry["text"] = entry;
             temp_entry["date"] = new Date();
             my_journal.unshift(temp_entry);
+            console.log(entry);
             console.log(my_journal);
             document.getElementById("saveMessage").style.display = "block";
+            document.getElementById("response").innerHTML = '';
           });
 
           $(document).on("click", "#response", function(){
