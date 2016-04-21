@@ -16,15 +16,16 @@ var loadButtons = function(){
 
           $('#btnMyJournal').click(function(e) {
               loadJournalPage();
+              $('#journalModal').modal('show');
           });
 
           var loadJournalPage = function(){
                   var journalVar = loadJournal();
-                  document.getElementById('content').innerHTML = '';
+                  document.getElementById('journalContent').innerHTML = '';
                   var content = document.createElement('div');
                   content.innerHTML = journalVar;
-                  document.getElementById('content').appendChild(content);
-                  document.getElementById('btnFavorite').disabled = true;
+                  document.getElementById('journalContent').appendChild(content);
+                  //document.getElementById('btnFavorite').disabled = true;
                   journal_functions();
           };
 
@@ -40,11 +41,14 @@ var loadButtons = function(){
           });
 
           $(document).on("click", "#response", function(){
+            console.log('hi');
             document.getElementById("saveMessage").style.display = "none";
           });
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
+              console.log('hi');
               loadJournalPage();
+              $('#journalModal').modal('show');
           } );
 
 

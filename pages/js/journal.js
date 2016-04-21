@@ -113,7 +113,7 @@ journalVar += "      <\/tr>";
 journalVar += "    <\/tbody>";
 journalVar += "  <\/table>";
 
-journalVar +=  "<button class=\"ui red button right floated\" id=\"home\">Home<\/button>";
+//journalVar +=  "<button class=\"ui red button right floated\" id=\"home\">Home<\/button>";
 journalVar += "<\/div>";
 
 return journalVar;

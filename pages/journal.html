@@ -3,13 +3,56 @@
   Team ZZZZ
   Martin (Ding) Ma, Caitlin Mehl, Connie Siu, Linda Wang
 
-  Settings page
+  Journal page
 -->
 
+<div id="journalModal" class="ui small modal">
 
-<!-- This HTML page is not currently used; all HTML is inserted into a div in journal.js
-Just keeping this for the future in case we decide to switch to angular -->
+  <h2 class="ui header">
+    <i class="teal edit icon"></i>
+    <br>
+    <div class="content">
+      My Journal Entries
+      <div class="sub header">View/edit your past journal entries</div>
+    </div>
+  </h2>
 
+  <div id="journalContent">
+    <table class="ui striped table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Entry</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="entry3" onclick="f()">
+          <td class="date">3/4/2016</td>
+          <td>I want to wake up thinking about puppies and butterflies.</button></td>
+        <tr id="entry2">
+          <td class="date">2/28/2016</td>
+          <td>I can't sleep because I'm HANGRY >:[ </td>
+        </tr>
+        <tr id="entry1">
+          <td class="date">2/14/2016</td>
+          <td>A dog is barking outside, and it is keeping me awake D:</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="actions">
+        <div class="ui green approve button">
+            <i class="checkmark icon"></i>
+                Done
+        </div>
+    </div>
+
+</div>
+
+
+<!-- old journal page using HTML not modal
 
 <html>
 <head>
@@ -33,10 +76,10 @@ Just keeping this for the future in case we decide to switch to angular -->
 	</h1>
   <div id = "journal">
 
-  <!--
+  
   sortable doesn't currently work
   <table class="ui sortable striped table">
-  -->
+  
   <table class="ui striped table">
     <thead>
       <tr>
@@ -65,3 +108,4 @@ Just keeping this for the future in case we decide to switch to angular -->
 </body>
 
 </html>
+-->
