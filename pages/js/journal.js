@@ -91,7 +91,7 @@ journalVar += " <h1>";
 journalVar += "   My Journal Entries";
 journalVar += " <\/h1>";
 journalVar += "  <div id = \"journal\">";
-journalVar += "  <table class=\"ui sortable striped table\">";
+journalVar += "  <table class=\"ui striped table\">";
 journalVar += "    <thead>";
 journalVar += "      <tr>";
 journalVar += "        <th>Date<\/th>";

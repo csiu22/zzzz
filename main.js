@@ -37,8 +37,9 @@ var getIcon = function(category) {
 var playContent = function(content){
 
       if (content.type === "welcome") {
-        insert = '<h2 class="ui header"> <div class="content">'+ content.title + '</div> </h2>' +
-                 '<div> Scroll mindlessly to your heart\'s content. </div>' ;
+        insert = '<h1 class="ui header"> <div class="content">'+ content.title + '</div> </h1>' +
+                 '<br> <div style="font-size:15px;"> Shuffle through what we have in store for you mindlessly to your heart\'s content.' +
+                 '<br> Click on the <i class="tiny circular random icon"></i> to get random material. No two visits to this page will be the same </div>' ;
         document.getElementById("content").innerHTML=insert;
         return;
       }
