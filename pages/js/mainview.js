@@ -1,7 +1,7 @@
 var loadButtons = function(){
 
           $('#btnMyFavorites').click(function(e) {
-            var favVar = load_favorites();
+            var favVar = loadFavorites();
             console.log(favVar);
             document.getElementById('favoritesContent').innerHTML = '';
             var content = document.createElement('div');
@@ -28,6 +28,67 @@ var loadButtons = function(){
               //journal_functions();
               $('#journalModal').modal('show');
           };
+
+
+          var loadFavorites = function() {
+            var favVar = "";
+            console.log('HELLO');
+
+            // favVar += "<h1> My Favorites </h1>";
+
+            favVar += "<table class=\"ui striped table\">";
+            favVar += "  <thead>";
+            favVar += "    <tr>";
+            favVar += "      <th>Title</th>";
+            favVar += "      <th>Category</th>";
+            favVar += "      <th> HISDHFIODH </th>"
+            favVar += "    </tr>";
+            favVar += "  </thead>";
+            favVar += "  <tbody>";
+
+            for (i = 0; i < favorites.length; i++) {
+              var entry = favorites[i];
+
+              favVar += "    <tr id=\"entry" + i +"\">";
+              favVar += "      <td>" + entry.title + "</td>";
+              favVar += "      <td>"+ entry.category + "</td>";
+              favVar += "<td><button type='button' class='delete' value='delete' id=\"btn" + i +"\" </button></td>";
+
+              $('#btnMyJournal').click(function(e) {
+                loadJournalPage();
+              });
+
+            }
+
+            favVar += "  </tbody>";
+            favVar += "</table>";
+
+            return favVar;
+          };
+
+
+          // delete from favorites; then reload page
+          $(document).on('click', '.delete', function() {
+            var id = $(this).attr('id').substr(3);
+            console.log(id);
+            var row = document.getElementById('entry' + id);
+            var title = favorites[id].title;
+            console.log(title);
+            favorites.splice(id, 1);
+            console.log(fav_dict);
+            delete fav_dict[title];
+            console.log(fav_dict);
+
+            var favVar = loadFavorites();
+            document.getElementById('favoritesContent').innerHTML = '';
+            var content = document.createElement('div');
+            content.innerHTML = favVar;
+            document.getElementById('favoritesContent').appendChild(content);
+            $('#favoritesModal').modal('show');
+          });
+
+
+
 
           /* btnSaveEntry is statically created so needs to be like this. */
           $(document).on( "click" , "#btnSaveEntry" , function(e){
