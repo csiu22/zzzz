@@ -54,15 +54,15 @@ var loadContent = function(){
 	tmp.setMonth(3);
 	tmp.setDate(4);
 	tmp.setYear(2016);
-	my_journal.push({"date": tmp,  "text": "I want to wake up thinking about puppies and butterflies."});
+	my_journal.push({"date": tmp,  "type": "journal", "title": "What would you like to wake up thinking about tomorrow morning?", "text": "I want to wake up thinking about puppies and butterflies."});
 	tmp = (new Date())
 	tmp.setMonth(2);
 	tmp.setDate(28);
 	tmp.setYear(2016);
-	my_journal.push({"date": tmp,  "text": "I can't sleep because I'm HANGRY >:["    });
+	my_journal.push({"date": tmp, "type": "journal", "title": "What's on your mind?",  "text": "I can't sleep because I'm HANGRY >:["    });
 	tmp = (new Date())
 	tmp.setMonth(2);
 	tmp.setDate(14);
 	tmp.setYear(2016);
-	my_journal.push({"date": tmp,  "text": "A dog is barking outside, and it is keeping me awake D:"});
+	my_journal.push({"date": tmp, "type": "journal", "title": "What's on your mind?", "text": "A dog is barking outside, and it is keeping me awake D:"});
 }
