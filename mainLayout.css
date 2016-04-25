@@ -5,7 +5,8 @@ html {
   -moz-filter: brightness(0.5) sepia(0.5);*/
 
   -webkit-filter: contrast(1.4) saturate(1.8) sepia(0.5) ;
-    filter: contrast(1.4) saturate(1.8) sepia(0.5) ;
+  filter: contrast(1.4) saturate(1.8) sepia(0.5) ;
+  /*background: orange;*/
 
 
 }
@@ -80,7 +81,7 @@ thead {
          1px 1px 0 #fff;
 }
 
-.teal.edit.icon {
+#btnMyJournal {
   position:relative;
   left:1.2em;
   top:0.2em;
@@ -90,4 +91,8 @@ thead {
   font-size: 3em;
   padding: 0.25em 0.25em;
   width: 1.5em;
+}
+
+#journal, #favoritesContent{
+  padding-left: 1.5rem;;
 }

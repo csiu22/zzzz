@@ -87,9 +87,9 @@ app.directive("journal", function() {
 var loadJournal = function(){
 
 var journalVar="";
-journalVar += " <h1>";
-journalVar += "   My Journal Entries";
-journalVar += " <\/h1>";
+// journalVar += " <h1>";
+// journalVar += "   My Journal Entries";
+// journalVar += " <\/h1>";
 journalVar += "  <div id = \"journal\">";
 journalVar += "  <table class=\"ui striped table\">";
 journalVar += "    <thead>";
