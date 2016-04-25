@@ -59,6 +59,8 @@ var playContent = function(content){
           /*
             display editable journal entry
           */
+          if (content["text"] == "") {
+            console.log("new entry");
           insert += //"<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
                    //'<h2 class="ui header"> <i class="edit icon"></i> <div class="content">'+ content.title + '</div> </h2>' +
                   // '<textarea autofocus> </textarea>'+
@@ -68,6 +70,16 @@ var playContent = function(content){
                    '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
                    '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
+          } else {
+            insert +=
+                   //'<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2" autofocus></textarea> </div> </div>' +
+                   '<h3> On ' + (Number(content.date.getMonth())+1)+"\/"+content.date.getDate()+"\/"+content.date.getFullYear() + ' you wrote: </h3><br>' +
+                   content["text"] +
+                   '<br>'+
+                   '<br><button class="ui button" id="btnSaveEntry"> <i class="copy icon"></i> Copy Entry </button>' +
+                   '<button class="ui button" id="btnPastEntries"> <i class="trash outline icon"></i> Delete Entry </button>' +
+                   '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
+          }
 
       } else if(content.type === "tips_quotes"){
             //display tips and quotes
