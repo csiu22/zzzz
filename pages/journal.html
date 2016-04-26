@@ -8,15 +8,36 @@
 
 <div id="journalModal" class="ui small modal">
 
-  <h2 class="ui header">
-    <i class="teal edit icon"></i>
-    <div class="content">
-      My Journal Entries
-      <div class="sub header">View/edit your past journal entries</div>
-    </div>
-  </h2>
+
+<div class="ui top attached tabular menu">
+  <div class="item active" data-tab="view">
+      <h2 class="ui header">
+      <i class="teal edit icon"></i>
+      <div class="content">
+        My Journal Entries
+        <div class="sub header">View/edit your past journal entries</div>
+      </div>
+      </h2>
+  </div>
+  <div class="item" data-tab="add">
+     <h2 class="ui header">
+      <i class="green add circle icon"></i>
+      <div class="content">
+        Add new Entry
+        <div class="sub header">View/edit your past journal entries</div>
+      </div>
+      </h2>
+
+  </div>
+</div>
+
+
+
 
   <div id="journalContent">
+
+  <div id="journalView" class="ui bottom attached tab segment active" data-tab="view">
+  
 <!--     <table class="ui striped table">
       <thead>
         <tr>
@@ -39,6 +60,12 @@
         </tr>
       </tbody>
     </table> -->
+
+  </div>
+
+   <div id="journalEdit" class="ui bottom attached tab segment" data-tab="add">
+  </div>
+
   </div>
 
   <div class="actions">

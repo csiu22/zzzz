@@ -5,6 +5,13 @@ var playEntry = function(i) {
   $('#journalModal').modal('hide');
 }
 
+var goToPrompt = function(i) {
+  playContent(totalContent["journalEntries"][i]);
+  if(currentlyPlaying) backStack.push(currentlyPlaying);
+  currentlyPlaying = totalContent["journalEntries"][i];
+  $('#journalModal').modal('hide');
+}
+
 removeEntry = function(i, deleteImmediately) {
   console.log("delete entry " + i);
   entries_to_delete.push(i);
@@ -24,7 +31,7 @@ deleteEntries = function() {
   }
 }
 
-var loadJournal = function(){
+var loadJournalView = function(){
 
 var journalVar="";
 // journalVar += " <h1>";
@@ -58,6 +65,38 @@ journalVar += "  <\/table>";
 journalVar += "<\/div>";
 
 return journalVar;
+
+}
+
+var loadJournalPrompts = function(){
+
+var prompts = totalContent["journalEntries"];
+
+var journalVar="";
+journalVar += "  <div id = \"journalPrompts\">";
+journalVar += "  <table class=\"ui striped table\">";
+journalVar += "    <thead>";
+journalVar += "      <tr>";
+journalVar += "        <th>Prompt<\/th>";
+journalVar += "      <\/tr>";
+journalVar += "    <\/thead>";
+journalVar += "    <tbody>";
+
+for(i=0; i<prompts.length; i++){
+
+journalVar += "      <tr class='entry' id=\"prompt" + i +"\" >";
+journalVar += "        <td class=\"date\" onclick='goToPrompt(" + i +")'>"+ prompts[i].title+"<\/td>";
+journalVar += "        <td><\/td>";
+journalVar += "      <\/tr>";
+}
+
+journalVar += "    <\/tbody>";
+journalVar += "  <\/table>";
+
+journalVar += "<\/div>";
+
+return journalVar;
+
 
 }
 

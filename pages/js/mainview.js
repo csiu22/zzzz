@@ -19,13 +19,19 @@ var loadButtons = function(){
           });
 
           var loadJournalPage = function(){
-              var journalVar = loadJournal();
-              document.getElementById('journalContent').innerHTML = '';
+              var journalVar = loadJournalView();
+              document.getElementById('journalView').innerHTML = '';
               var content = document.createElement('div');
               content.innerHTML = journalVar;
-              document.getElementById('journalContent').appendChild(content);
-              //document.getElementById('btnFavorite').disabled = true;
-              //journal_functions();
+              document.getElementById('journalView').appendChild(content);
+
+              var promptsVar = loadJournalPrompts();
+              document.getElementById('journalEdit').innerHTML = '';
+              var content = document.createElement('div');
+              content.innerHTML = promptsVar;
+              document.getElementById('journalEdit').appendChild(content);
+  
+              $('.menu .item').tab();
               $('#journalModal').modal('show');
           };
 
@@ -118,21 +124,14 @@ var loadButtons = function(){
           $(document).on( "click" , "#btnSaveEntry" , function(e){
             var entry = document.getElementById("response").value;
             var temp_entry = {};
-            /*
-            temp_entry["text"] = entry;
-            temp_entry["date"] = new Date();
-            temp_entry["type"]="journal"
 
-            console.log(currentlyPlaying);
-            temp_entry["title"]="TITLE"
-            */
-            temp_entry = currentlyPlaying;
+             temp_entry["category"] = currentlyPlaying.category;
+            temp_entry["title"] = currentlyPlaying.title;
+             temp_entry["type"] = currentlyPlaying.type;
             temp_entry["text"] = entry;
             temp_entry["date"] = new Date();
 
             my_journal.unshift(temp_entry);
-            //console.log(entry);
-            //console.log(my_journal);
             document.getElementById("saveMessage").style.display = "block";
             document.getElementById("response").value = '';
           });
