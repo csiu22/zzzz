@@ -72,16 +72,16 @@ var playContent = function(content){
                    '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
           } else {
+            var ind = my_journal.indexOf(content);
             insert +=
                    //'<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2" autofocus></textarea> </div> </div>' +
                    '<h3> On ' + (Number(content.date.getMonth())+1)+"\/"+content.date.getDate()+"\/"+content.date.getFullYear() + ' you wrote: </h3><br>' +
                    content["text"] +
                    '<br>'+
-                   '<br><button class="ui button" id="btnSaveEntry"> <i class="copy icon"></i> Copy Entry </button>' +
-                   '<button class="ui button" id="btnPastEntries"> <i class="trash outline icon"></i> Delete Entry </button>' +
+                   //'<br><button class="ui button" id="btnCopyEntry"> <i class="copy icon"></i> Copy Entry </button>' +
+                   '<button class="ui button" onclick="removeEntry(' + ind + ', true)"> <i class="trash outline icon"></i> Delete Entry </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
           }
-
       } else if(content.type === "tips_quotes"){
             //display tips and quotes
             insert = "<h2>"+ content.title+"</h2>";

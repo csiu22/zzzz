@@ -53,10 +53,7 @@
 <script>
 var closeJournal = function() {
   $('#journalModal').modal('hide');
-  while (entries_to_delete.length > 0) {
-    var e = entries_to_delete.pop()
-    my_journal.splice(e, 1)
-  }
+  deleteEntries();
 }
 
 </script>

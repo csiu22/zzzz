@@ -1,15 +1,24 @@
 var playEntry = function(i) {
   playContent(my_journal[i]);
   $('#journalModal').modal('hide');
+}
+
+removeEntry = function(i, deleteImmediately) {
+  console.log("delete entry " + i);
+  entries_to_delete.push(i);
+  $("#entry"+i).remove();
+
+  if (deleteImmediately) {
+    my_journal.splice(i, 1)
+    shuffle();
+  }
+}
+
+deleteEntries = function() {
   while (entries_to_delete.length > 0) {
     var e = entries_to_delete.pop()
     my_journal.splice(e, 1)
   }
-}
-
-var deleteEntry = function(i) {
-  entries_to_delete.push(i);
-  $("#entry"+i).remove();
 }
 
 var loadJournal = function(){
