@@ -1,5 +1,7 @@
 var playEntry = function(i) {
   playContent(my_journal[i]);
+  if(currentlyPlaying) backStack.push(currentlyPlaying);
+  currentlyPlaying = my_journal[i];
   $('#journalModal').modal('hide');
 }
 
@@ -43,7 +45,7 @@ var entry = my_journal[i];
 journalVar += "      <tr class='entry' id=\"entry" + i +"\" >";
 journalVar += "        <td class=\"date\" onclick='playEntry(" + i +")'>"+ (Number(entry.date.getMonth())+1)+"\/"+entry.date.getDate()+"\/"+entry.date.getFullYear()+"<\/td>";
 journalVar += "        <td onclick='playEntry(" + i +")'>"+ entry.text +"<\/td>";
-journalVar += "        <td><i class='large trash outline icon' onclick='deleteEntry(" + i + ")'></i><\/td>";
+journalVar += "        <td><i class='large trash outline icon' onclick='removeEntry(" + i + ")'></i><\/td>";
 journalVar += "        <td><\/td>";
 journalVar += "      <\/tr>";
 }

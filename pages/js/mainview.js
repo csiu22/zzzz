@@ -94,17 +94,17 @@ var loadButtons = function(){
           $(document).on( "click" , "#btnSaveEntry" , function(e){
             var entry = document.getElementById("response").value;
             var temp_entry = {};
-            /*
             temp_entry["text"] = entry;
             temp_entry["date"] = new Date();
-            temp_entry["type"]="journal"
+            temp_entry["type"] = "journal";
+            temp_entry["title"] = currentlyPlaying["title"];
 
             console.log(currentlyPlaying);
-            temp_entry["title"]="TITLE"
-            */
-            temp_entry = currentlyPlaying;
+            /*
+            var temp_entry = currentlyPlaying;
             temp_entry["text"] = entry;
             temp_entry["date"] = new Date();
+            */
 
             my_journal.unshift(temp_entry);
             //console.log(entry);

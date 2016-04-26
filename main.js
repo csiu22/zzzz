@@ -34,6 +34,12 @@ var getIcon = function(category) {
 
 }
 
+var copyEntry = function(i) {
+  console.log(my_journal[i]);
+  var temp_entry = my_journal[i];
+  temp_entry["copied"] = true;
+  playContent(temp_entry);
+}
 
 var playContent = function(content){
 
@@ -62,8 +68,8 @@ var playContent = function(content){
           */
           if (content["text"] == "") {
             console.log("new entry");
-          insert += //"<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
-                   //'<h2 class="ui header"> <i class="edit icon"></i> <div class="content">'+ content.title + '</div> </h2>' +
+            insert += //"<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
+                     //'<h2 class="ui header"> <i class="edit icon"></i> <div class="content">'+ content.title + '</div> </h2>' +
                   // '<textarea autofocus> </textarea>'+
                    //'<textarea id="response"> </textarea>' +
 
@@ -71,6 +77,19 @@ var playContent = function(content){
                    '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
                    '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
+          } else if (content["copied"]) {
+            insert += //"<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
+                   //'<h2 class="ui header"> <i class="edit icon"></i> <div class="content">'+ content.title + '</div> </h2>' +
+                  // '<textarea autofocus> </textarea>'+
+                   //'<textarea id="response"> </textarea>' +
+
+                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2" autofocus>' + content["text"] + '</textarea> </div> </div>' +
+                   '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
+                   '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
+                   '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
+
+            console.log("COPIED");
+            content["copied"] = false;
           } else {
             var ind = my_journal.indexOf(content);
             insert +=
@@ -79,6 +98,7 @@ var playContent = function(content){
                    content["text"] +
                    '<br>'+
                    //'<br><button class="ui button" id="btnCopyEntry"> <i class="copy icon"></i> Copy Entry </button>' +
+                   '<br><button class="ui button" onclick="copyEntry(' + ind + ')"> <i class="copy icon"></i> Copy Entry </button>' +
                    '<button class="ui button" onclick="removeEntry(' + ind + ', true)"> <i class="trash outline icon"></i> Delete Entry </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
           }
@@ -94,7 +114,6 @@ var playContent = function(content){
         until this is developed further
       */
       document.getElementById("content").innerHTML=insert;
-
 }
 
 var shuffle = function(){
