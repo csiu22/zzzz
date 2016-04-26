@@ -11,7 +11,8 @@ removeEntry = function(i, deleteImmediately) {
   $("#entry"+i).remove();
 
   if (deleteImmediately) {
-    my_journal.splice(i, 1)
+    my_journal.splice(i, 1);
+    currentlyPlaying = false;
     shuffle();
   }
 }
