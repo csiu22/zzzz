@@ -32,7 +32,6 @@ var loadButtons = function(){
 
           var loadFavorites = function() {
             var favVar = "";
-            console.log('HELLO');
 
             // favVar += "<h1> My Favorites </h1>";
 
@@ -41,7 +40,8 @@ var loadButtons = function(){
             favVar += "    <tr>";
             favVar += "      <th>Title</th>";
             favVar += "      <th>Category</th>";
-            favVar += "      <th> HISDHFIODH </th>"
+            favVar += "      <th>Play</th>";
+            favVar += "      <th>Delete</th>";
             favVar += "    </tr>";
             favVar += "  </thead>";
             favVar += "  <tbody>";
@@ -52,7 +52,8 @@ var loadButtons = function(){
               favVar += "    <tr id=\"entry" + i +"\">";
               favVar += "      <td>" + entry.title + "</td>";
               favVar += "      <td>"+ entry.category + "</td>";
-              favVar += "<td><button type='button' class='delete' value='delete' id=\"btn" + i +"\" </button></td>";
+              favVar += "<td><button type='button' class='play' id=\"play" + i +"\" </button></td>";
+              favVar += "<td><button type='button' class='delete' id=\"btn" + i +"\" </button></td>";
 
               $('#btnMyJournal').click(function(e) {
                 loadJournalPage();
@@ -70,21 +71,44 @@ var loadButtons = function(){
           // delete from favorites; then reload page
           $(document).on('click', '.delete', function() {
             var id = $(this).attr('id').substr(3);
-            console.log(id);
             var row = document.getElementById('entry' + id);
             var title = favorites[id].title;
-            console.log(title);
             favorites.splice(id, 1);
-            console.log(fav_dict);
             delete fav_dict[title];
-            console.log(fav_dict);
 
             var favVar = loadFavorites();
             document.getElementById('favoritesContent').innerHTML = '';
             var content = document.createElement('div');
             content.innerHTML = favVar;
             document.getElementById('favoritesContent').appendChild(content);
-            $('#favoritesModal').modal('show');
+            $('#btnFavorite').addClass('empty');
+          });
+
+          // play specific content from favorites
+          $(document).on('click', '.play', function() {
+            var id = $(this).attr('id').substr(4);
+            //var row = document.getElementById('entry' + id);
+            var content = favorites[id];
+            backStack.push(currentlyPlaying);  // not sure what to do about back/forward when playing from favorites
+            forwardStack = [];
+            playContent(content);
+            $('#btnFavorite').removeClass('empty');
+            $('#favoritesModal').modal('hide');
+          });
+
+          // play all favorites as a playlist
+          $(document).on('click', '#btnPlaylist', function() {
+            forwardStack = [];
+            for (i = 1; i < favorites.length; i++) {
+              var content = favorites[i];
+              forwardStack.push(content);
+            }
+            //changes shuffle to forward
+            document.getElementById('btnShuffle').value = "Forward";
+            document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
+            document.getElementById("btnShuffle").setAttribute("data-content", "Next");
+            playContent(favorites[0]);
+            $('#favoritesModal').modal('hide');
           });
 
 
@@ -94,17 +118,17 @@ var loadButtons = function(){
           $(document).on( "click" , "#btnSaveEntry" , function(e){
             var entry = document.getElementById("response").value;
             var temp_entry = {};
+            /*
             temp_entry["text"] = entry;
             temp_entry["date"] = new Date();
-            temp_entry["type"] = "journal";
-            temp_entry["title"] = currentlyPlaying["title"];
+            temp_entry["type"]="journal"
 
             console.log(currentlyPlaying);
-            /*
-            var temp_entry = currentlyPlaying;
+            temp_entry["title"]="TITLE"
+            */
+            temp_entry = currentlyPlaying;
             temp_entry["text"] = entry;
             temp_entry["date"] = new Date();
-            */
 
             my_journal.unshift(temp_entry);
             //console.log(entry);
