@@ -1,6 +1,15 @@
 var playEntry = function(i) {
-  playContent(my_journal[i-1]);
+  playContent(my_journal[i]);
   $('#journalModal').modal('hide');
+  while (entries_to_delete.length > 0) {
+    var e = entries_to_delete.pop()
+    my_journal.splice(e, 1)
+  }
+}
+
+var deleteEntry = function(i) {
+  entries_to_delete.push(i);
+  $("#entry"+i).remove();
 }
 
 var loadJournal = function(){
@@ -22,9 +31,10 @@ journalVar += "    <tbody>";
 for(i=0; i<my_journal.length; i++){
 
 var entry = my_journal[i];
-journalVar += "      <tr class='entry' id=\"entry" + (i+1) +"\" onclick='playEntry(" + (i+1) +")'>";
-journalVar += "        <td class=\"date\">"+ (Number(entry.date.getMonth())+1)+"\/"+entry.date.getDate()+"\/"+entry.date.getFullYear()+"<\/td>";
-journalVar += "        <td>"+ entry.text +"<\/td>";
+journalVar += "      <tr class='entry' id=\"entry" + i +"\" >";
+journalVar += "        <td class=\"date\" onclick='playEntry(" + i +")'>"+ (Number(entry.date.getMonth())+1)+"\/"+entry.date.getDate()+"\/"+entry.date.getFullYear()+"<\/td>";
+journalVar += "        <td onclick='playEntry(" + i +")'>"+ entry.text +"<\/td>";
+journalVar += "        <td><i class='large trash outline icon' onclick='deleteEntry(" + i + ")'></i><\/td>";
 journalVar += "        <td><\/td>";
 journalVar += "      <\/tr>";
 }

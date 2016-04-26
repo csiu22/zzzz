@@ -9,6 +9,7 @@
     favorites = [];
     fav_dict = {};
     my_journal = [];
+    entries_to_delete = [];
     backStack = [];
     forwardStack = [];
     playList = [];

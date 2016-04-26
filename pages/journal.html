@@ -42,7 +42,7 @@
   </div>
 
   <div class="actions">
-    <div class="ui green approve button">
+    <div class="ui green button" onclick="closeJournal()">
       <i class="checkmark icon"></i>
       Done
     </div>
@@ -50,6 +50,16 @@
 
 </div>
 
+<script>
+var closeJournal = function() {
+  $('#journalModal').modal('hide');
+  while (entries_to_delete.length > 0) {
+    var e = entries_to_delete.pop()
+    my_journal.splice(e, 1)
+  }
+}
+
+</script>
 
 <!-- old journal page using HTML not modal
 
