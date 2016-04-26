@@ -30,9 +30,37 @@ var loadButtons = function(){
               var content = document.createElement('div');
               content.innerHTML = promptsVar;
               document.getElementById('journalEdit').appendChild(content);
-  
+
               $('.menu .item').tab();
               $('#journalModal').modal('show');
+          };
+
+          // delete from favorites; then reload page
+          deleteFromFav = function(i) {
+            var id = i;
+            var row = document.getElementById('entry' + id);
+            var title = favorites[id].title;
+            favorites.splice(id, 1);
+            delete fav_dict[title];
+
+            var favVar = loadFavorites();
+            document.getElementById('favoritesContent').innerHTML = '';
+            var content = document.createElement('div');
+            content.innerHTML = favVar;
+            document.getElementById('favoritesContent').appendChild(content);
+            $('#btnFavorite').addClass('empty');
+          };
+
+          playOneFav = function(i) {
+            var id = i;
+            // var id = $(this).attr('id').substr(4);
+            //var row = document.getElementById('entry' + id);
+            var content = favorites[id];
+            backStack.push(currentlyPlaying);  // not sure what to do about back/forward when playing from favorites
+            forwardStack = [];
+            playContent(content);
+            $('#btnFavorite').removeClass('empty');
+            $('#favoritesModal').modal('hide');
           };
 
 
@@ -46,8 +74,8 @@ var loadButtons = function(){
             favVar += "    <tr>";
             favVar += "      <th>Title</th>";
             favVar += "      <th>Category</th>";
-            favVar += "      <th>Play</th>";
-            favVar += "      <th>Delete</th>";
+            // favVar += "      <th>Play</th>";
+            // favVar += "      <th>Delete</th>";
             favVar += "    </tr>";
             favVar += "  </thead>";
             favVar += "  <tbody>";
@@ -56,10 +84,11 @@ var loadButtons = function(){
               var entry = favorites[i];
 
               favVar += "    <tr id=\"entry" + i +"\">";
-              favVar += "      <td>" + entry.title + "</td>";
-              favVar += "      <td>"+ entry.category + "</td>";
-              favVar += "<td><button type='button' class='play' id=\"play" + i +"\" </button></td>";
-              favVar += "<td><button type='button' class='delete' id=\"btn" + i +"\" </button></td>";
+              favVar += "      <td onclick='playOneFav(" + i + ")'>" + entry.title + "</td>";
+              favVar += "      <td onclick='playOneFav(" + i + ")'>"+ entry.category + "</td>";
+              // favVar += "<td><button type='button' class='play' id=\"play" + i +"\" </button></td>";
+              // favVar += "<td><button type='button' class='delete' id=\"btn" + i +"\" </button></td>";
+              favVar += "<td><i class='large trash outline icon' onclick='deleteFromFav(" + i + ")'></i><\/td>";
 
               $('#btnMyJournal').click(function(e) {
                 loadJournalPage();
@@ -75,20 +104,22 @@ var loadButtons = function(){
 
 
           // delete from favorites; then reload page
-          $(document).on('click', '.delete', function() {
-            var id = $(this).attr('id').substr(3);
-            var row = document.getElementById('entry' + id);
-            var title = favorites[id].title;
-            favorites.splice(id, 1);
-            delete fav_dict[title];
+          // $(document).on('click', '.delete', function() {
+          //   var id = $(this).attr('id').substr(3);
+          //   var row = document.getElementById('entry' + id);
+          //   var title = favorites[id].title;
+          //   favorites.splice(id, 1);
+          //   delete fav_dict[title];
 
-            var favVar = loadFavorites();
-            document.getElementById('favoritesContent').innerHTML = '';
-            var content = document.createElement('div');
-            content.innerHTML = favVar;
-            document.getElementById('favoritesContent').appendChild(content);
-            $('#btnFavorite').addClass('empty');
-          });
+          //   var favVar = loadFavorites();
+          //   document.getElementById('favoritesContent').innerHTML = '';
+          //   var content = document.createElement('div');
+          //   content.innerHTML = favVar;
+          //   document.getElementById('favoritesContent').appendChild(content);
+          //   $('#btnFavorite').addClass('empty');
+          // });
+
+
 
           // play specific content from favorites
           $(document).on('click', '.play', function() {
