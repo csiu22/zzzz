@@ -51,6 +51,7 @@ var loadButtons = function(){
             $('#btnFavorite').addClass('empty');
           };
 
+          // play specific content from favorites
           playOneFav = function(i) {
             var id = i;
             // var id = $(this).attr('id').substr(4);
@@ -83,7 +84,7 @@ var loadButtons = function(){
             for (i = 0; i < favorites.length; i++) {
               var entry = favorites[i];
 
-              favVar += "    <tr id=\"entry" + i +"\">";
+              favVar += "    <tr class='favEntry' id=\"entry" + i +"\">";
               favVar += "      <td onclick='playOneFav(" + i + ")'>" + entry.title + "</td>";
               favVar += "      <td onclick='playOneFav(" + i + ")'>"+ entry.category + "</td>";
               // favVar += "<td><button type='button' class='play' id=\"play" + i +"\" </button></td>";
@@ -101,37 +102,6 @@ var loadButtons = function(){
 
             return favVar;
           };
-
-
-          // delete from favorites; then reload page
-          // $(document).on('click', '.delete', function() {
-          //   var id = $(this).attr('id').substr(3);
-          //   var row = document.getElementById('entry' + id);
-          //   var title = favorites[id].title;
-          //   favorites.splice(id, 1);
-          //   delete fav_dict[title];
-
-          //   var favVar = loadFavorites();
-          //   document.getElementById('favoritesContent').innerHTML = '';
-          //   var content = document.createElement('div');
-          //   content.innerHTML = favVar;
-          //   document.getElementById('favoritesContent').appendChild(content);
-          //   $('#btnFavorite').addClass('empty');
-          // });
-
-
-
-          // play specific content from favorites
-          $(document).on('click', '.play', function() {
-            var id = $(this).attr('id').substr(4);
-            //var row = document.getElementById('entry' + id);
-            var content = favorites[id];
-            backStack.push(currentlyPlaying);  // not sure what to do about back/forward when playing from favorites
-            forwardStack = [];
-            playContent(content);
-            $('#btnFavorite').removeClass('empty');
-            $('#favoritesModal').modal('hide');
-          });
 
           // play all favorites as a playlist
           $(document).on('click', '#btnPlaylist', function() {
