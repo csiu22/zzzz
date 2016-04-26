@@ -4,11 +4,13 @@ html {
   -ms-filter: brightness(0.5) sepia(0.5);
   -moz-filter: brightness(0.5) sepia(0.5);*/
 
-  -webkit-filter: contrast(1.4) saturate(1.8) sepia(0.5) ;
-  filter: contrast(1.4) saturate(1.8) sepia(0.5) ;
-  /*background: orange;*/
+  -webkit-filter: contrast(0.5) saturate(1.5) sepia(0.6);
+  /*filter: contrast(1.4) saturate(1.8) sepia(0.5) ;*/
 
+}
 
+body{
+    background-color: #ffffe0;
 }
 
 #displayport {
