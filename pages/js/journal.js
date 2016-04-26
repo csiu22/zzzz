@@ -22,7 +22,7 @@ journalVar += "    <tbody>";
 for(i=0; i<my_journal.length; i++){
 
 var entry = my_journal[i];
-journalVar += "      <tr id=\"entry" + (i+1) +"\" onclick='playEntry(" + (i+1) +")'>";
+journalVar += "      <tr class='entry' id=\"entry" + (i+1) +"\" onclick='playEntry(" + (i+1) +")'>";
 journalVar += "        <td class=\"date\">"+ (Number(entry.date.getMonth())+1)+"\/"+entry.date.getDate()+"\/"+entry.date.getFullYear()+"<\/td>";
 journalVar += "        <td>"+ entry.text +"<\/td>";
 journalVar += "        <td><\/td>";
