@@ -33,6 +33,7 @@ var flush_variables = function(){
     backStack = [];
     forwardStack = [];
     playList = [];
+    user = undefined;
 
 }
 
@@ -54,6 +55,13 @@ var copyEntry = function(i) {
   temp_entry["copied"] = true;
   playContent(temp_entry);
 }
+
+var login_message = function(){
+  insert ='<h1 class="ui header"> <div class="content"> You are now logged out. </div> </h1>';
+  insert += '<br> <div style="font-size:20px;"> Please log in to use the site.</div>';
+  document.getElementById("content").innerHTML=insert;
+}
+
 
 var playContent = function(content){
 
