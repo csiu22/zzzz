@@ -125,8 +125,18 @@ var shuffle = function(){
         //Linda debugging
         //category="journalEntries";
         content = getContent(category);
+
+        //make sure you aren't shuffling to the same thing
+        if (currentlyPlaying != undefined) {
+          if (currentlyPlaying.title == content.title) {
+            shuffle();
+          }   
+        }
+        
         playContent(content);
-        if(currentlyPlaying) backStack.push(currentlyPlaying);
+        if(currentlyPlaying) {
+          backStack.push(currentlyPlaying);
+        }
         currentlyPlaying = content;
 }
 
