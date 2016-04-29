@@ -109,5 +109,6 @@ thead {
 }
 
 .active.small.modal#loginModal {
-  top:245px;
+  top:15em;
 }
+
