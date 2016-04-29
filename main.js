@@ -23,6 +23,19 @@
 
 });
 
+var flush_variables = function(){
+
+    disabled_categories = [];
+    favorites = [];
+    fav_dict = {};
+    my_journal = [];
+    entries_to_delete = [];
+    backStack = [];
+    forwardStack = [];
+    playList = [];
+
+}
+
 
 var getIcon = function(category) {
   if (category === "video") {

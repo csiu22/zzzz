@@ -172,6 +172,7 @@ var loadButtons = function(){
             // document.getElementById("welcome").style.display = "none";
             $('#loginModal').modal('show dimmer');
              $('#loginModal').modal('show');
+             flush_variables();
 
           });
 
