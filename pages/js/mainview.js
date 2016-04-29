@@ -87,6 +87,7 @@ var loadButtons = function(){
             favVar += "    <tr>";
             favVar += "      <th>Title</th>";
             favVar += "      <th>Category</th>";
+            favVar += "      <th></th>";
             // favVar += "      <th>Play</th>";
             // favVar += "      <th>Delete</th>";
             favVar += "    </tr>";
@@ -99,8 +100,6 @@ var loadButtons = function(){
               favVar += "    <tr class='favEntry' id=\"entry" + i +"\">";
               favVar += "      <td onclick='playOneFav(" + i + ")'>" + entry.title + "</td>";
               favVar += "      <td onclick='playOneFav(" + i + ")'>"+ entry.category + "</td>";
-              // favVar += "<td><button type='button' class='play' id=\"play" + i +"\" </button></td>";
-              // favVar += "<td><button type='button' class='delete' id=\"btn" + i +"\" </button></td>";
               favVar += "<td><i class='large trash outline icon' onclick='deleteFromFav(" + i + ")'></i><\/td>";
 
               $('#btnMyJournal').click(function(e) {
