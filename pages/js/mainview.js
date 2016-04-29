@@ -1,5 +1,6 @@
 var loadButtons = function(){
 
+
           $('#btnMyFavorites').click(function(e) {
             var favVar = loadFavorites();
             console.log(favVar);
