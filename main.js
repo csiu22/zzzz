@@ -101,8 +101,8 @@ var playContent = function(content){
                    content["text"] +
                    '<br>'+
                    //'<br><button class="ui button" id="btnCopyEntry"> <i class="copy icon"></i> Copy Entry </button>' +
-                   '<br><button class="ui button" onclick="copyEntry(' + ind + ')"> <i class="copy icon"></i> Copy Entry </button>' +
-                   '<button class="ui button" onclick="removeEntry(' + ind + ', true)"> <i class="trash outline icon"></i> Delete Entry </button>' +
+                   '<br><button class="ui teal button" style="float:left" onclick="copyEntry(' + ind + ')"> <i class="copy icon"></i> Copy Entry </button>' +
+                   '<button class="ui red button" style="float:right" onclick="removeEntry(' + ind + ', true)"> <i class="trash outline icon"></i> Delete Entry </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
           }
       } else if(content.type === "tips_quotes"){
@@ -130,9 +130,9 @@ var shuffle = function(){
         if (currentlyPlaying != undefined) {
           if (currentlyPlaying.title == content.title) {
             shuffle();
-          }   
+          }
         }
-        
+
         playContent(content);
         if(currentlyPlaying) {
           backStack.push(currentlyPlaying);

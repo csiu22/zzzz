@@ -95,7 +95,7 @@ thead {
   width: 1.5em;
 }
 
-#journal, #favoritesContent{
+#journalView, #journalEdit, #favoritesContent {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
@@ -103,3 +103,9 @@ thead {
 .entry, .favEntry {
   cursor:pointer;
 }
+
+#journalContent {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+

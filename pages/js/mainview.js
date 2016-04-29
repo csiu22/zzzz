@@ -27,17 +27,23 @@ var loadButtons = function(){
           });
 
           var loadJournalPage = function(){
+              // var journalVar = loadJournalView();
+              // document.getElementById('journalView').innerHTML = '';
+              // var content = document.createElement('div');
+              // content.innerHTML = journalVar;
+              // document.getElementById('journalView').appendChild(content);
+
               var journalVar = loadJournalView();
-              document.getElementById('journalView').innerHTML = '';
-              var content = document.createElement('div');
-              content.innerHTML = journalVar;
-              document.getElementById('journalView').appendChild(content);
+              document.getElementById('journalView').innerHTML = journalVar;
+              // var content = document.createElement('div');
+              // content.innerHTML = journalVar;
+              // document.getElementById('journalView').appendChild(content);
 
               var promptsVar = loadJournalPrompts();
-              document.getElementById('journalEdit').innerHTML = '';
-              var content = document.createElement('div');
-              content.innerHTML = promptsVar;
-              document.getElementById('journalEdit').appendChild(content);
+              document.getElementById('journalEdit').innerHTML = promptsVar;
+              // var content = document.createElement('div');
+              // content.innerHTML = promptsVar;
+              // document.getElementById('journalEdit').appendChild(content);
 
               $('.menu .item').tab();
               $('#journalModal').modal('show');

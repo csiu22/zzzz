@@ -34,15 +34,13 @@ deleteEntries = function() {
 var loadJournalView = function(){
 
 var journalVar="";
-// journalVar += " <h1>";
-// journalVar += "   My Journal Entries";
-// journalVar += " <\/h1>";
-journalVar += "  <div id = \"journal\">";
+// journalVar += "  <div id = \"journal\">";
 journalVar += "  <table class=\"ui striped table\">";
 journalVar += "    <thead>";
 journalVar += "      <tr>";
 journalVar += "        <th>Date<\/th>";
 journalVar += "        <th>Entry<\/th>";
+journalVar += "        <th></th>";
 journalVar += "      <\/tr>";
 journalVar += "    <\/thead>";
 journalVar += "    <tbody>";
@@ -61,8 +59,7 @@ journalVar += "      <\/tr>";
 journalVar += "    <\/tbody>";
 journalVar += "  <\/table>";
 
-//journalVar +=  "<button class=\"ui red button right floated\" id=\"home\">Home<\/button>";
-journalVar += "<\/div>";
+// journalVar += "<\/div>";
 
 return journalVar;
 
@@ -73,7 +70,7 @@ var loadJournalPrompts = function(){
 var prompts = totalContent["journalEntries"];
 
 var journalVar="";
-journalVar += "  <div id = \"journalPrompts\">";
+// journalVar += "  <div id = \"journalPrompts\">";
 journalVar += "  <table class=\"ui striped table\">";
 journalVar += "    <thead>";
 journalVar += "      <tr>";
@@ -93,7 +90,7 @@ journalVar += "      <\/tr>";
 journalVar += "    <\/tbody>";
 journalVar += "  <\/table>";
 
-journalVar += "<\/div>";
+// journalVar += "<\/div>";
 
 return journalVar;
 
