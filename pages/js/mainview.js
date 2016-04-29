@@ -161,14 +161,27 @@ var loadButtons = function(){
             document.getElementById("welcome").style.display = "none";
           });
 
-          $(document).on( "click" , "#login" , function(e){
+          var submit_login = function() {
             user = document.getElementById("username").value;
             document.getElementById("loggedInUser").innerHTML = user;
             document.getElementById("btnLogin").style.display = "none";
             document.getElementById("welcome").style.display = "block";
             $(".dropdown").dropdown();
             $('#loginModal').modal('hide');
+          }
+
+          $(document).on( "click" , "#login" , function(e){
+            submit_login();
           } );
+
+
+          $(document).on("keydown", "input#username", function(e) {
+            if (e.keyCode == 13) {
+              e.preventDefault();
+              $('#loginModal').modal('hide');
+              submit_login();
+            }
+          });
 
           //$('#btnShuffle').click(function(e) {
           $(document).on("click", "#btnShuffle", function(e) {
