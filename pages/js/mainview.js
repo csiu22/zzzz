@@ -9,6 +9,13 @@ var loadButtons = function(){
             content.innerHTML = favVar;
             document.getElementById('favoritesContent').appendChild(content);
             $('#favoritesModal').modal('show');
+            if (favorites.length == 0) {
+              console.log("empty");
+              $('#btnPlaylist').addClass('disabled');
+            } else {
+              console.log("stuff");
+              $('#btnPlaylist').removeClass('disabled');
+            }
           });
 
           $('#btnMySettings').click(function(e) {
@@ -50,6 +57,10 @@ var loadButtons = function(){
             content.innerHTML = favVar;
             document.getElementById('favoritesContent').appendChild(content);
             $('#btnFavorite').addClass('empty');
+            if (favorites.length == 0) {
+              console.log("empty");
+              $('#btnPlaylist').addClass('disabled');
+            }
           };
 
           // play specific content from favorites
@@ -76,6 +87,7 @@ var loadButtons = function(){
             favVar += "    <tr>";
             favVar += "      <th>Title</th>";
             favVar += "      <th>Category</th>";
+            favVar += "      <th></th>";
             // favVar += "      <th>Play</th>";
             // favVar += "      <th>Delete</th>";
             favVar += "    </tr>";
@@ -88,8 +100,6 @@ var loadButtons = function(){
               favVar += "    <tr class='favEntry' id=\"entry" + i +"\">";
               favVar += "      <td onclick='playOneFav(" + i + ")'>" + entry.title + "</td>";
               favVar += "      <td onclick='playOneFav(" + i + ")'>"+ entry.category + "</td>";
-              // favVar += "<td><button type='button' class='play' id=\"play" + i +"\" </button></td>";
-              // favVar += "<td><button type='button' class='delete' id=\"btn" + i +"\" </button></td>";
               favVar += "<td><i class='large trash outline icon' onclick='deleteFromFav(" + i + ")'></i><\/td>";
 
               $('#btnMyJournal').click(function(e) {
@@ -117,6 +127,7 @@ var loadButtons = function(){
             document.getElementById("btnShuffle").setAttribute("data-content", "Next");
             playContent(favorites[0]);
             $('#favoritesModal').modal('hide');
+
           });
 
 
