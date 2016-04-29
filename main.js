@@ -20,6 +20,9 @@
     playContent(currentlyPlaying);
 
     loadButtons();
+
+    $('#loginModal').modal('show dimmer');
+
 });
 
 
