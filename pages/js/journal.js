@@ -38,11 +38,11 @@ var journalVar="";
 journalVar += "  <table class=\"ui striped table\">";
 journalVar += "    <thead>";
 journalVar += "      <tr>";
-journalVar += "        <th>Date<\/th>";
-journalVar += "        <th>Entry<\/th>";
-journalVar += "        <th></th>";
-journalVar += "      <\/tr>";
-journalVar += "    <\/thead>";
+journalVar += "        <th>Date</th>";
+journalVar += "        <th>Entry</th>";
+journalVar += "        <th> </th>";
+journalVar += "      </tr>";
+journalVar += "    </thead>";
 journalVar += "    <tbody>";
 
 for(i=0; i<my_journal.length; i++){

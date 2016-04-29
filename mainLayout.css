@@ -107,7 +107,7 @@ thead {
 
 #journalContent {
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+/*  padding-bottom: 1.5rem;*/
 }
 
 .text.container {
@@ -118,3 +118,17 @@ thead {
   top:15em;
 }
 
+.ui.modal > .header {
+  border-bottom: none;
+}
+
+.ui.modal > .actions {
+  border-top: none;
+  background: none;
+  padding: 1.5rem;
+}
+
+.ui.modal .actions > .button {
+  margin-left: 0em;
+  margin-right: 0em;
+}

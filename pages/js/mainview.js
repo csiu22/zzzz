@@ -99,16 +99,12 @@ var loadButtons = function(){
           var loadFavorites = function() {
             var favVar = "";
 
-            // favVar += "<h1> My Favorites </h1>";
-
             favVar += "<table class=\"ui striped table\">";
             favVar += "  <thead>";
             favVar += "    <tr>";
             favVar += "      <th>Title</th>";
             favVar += "      <th>Category</th>";
             favVar += "      <th></th>";
-            // favVar += "      <th>Play</th>";
-            // favVar += "      <th>Delete</th>";
             favVar += "    </tr>";
             favVar += "  </thead>";
             favVar += "  <tbody>";
@@ -169,12 +165,12 @@ var loadButtons = function(){
           });
 
           $(document).on("click", "#response", function(){
-        
+
             document.getElementById("saveMessage").style.display = "none";
           });
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
-  
+
               loadJournalPage();
               $('#journalModal').modal('show');
           } );
