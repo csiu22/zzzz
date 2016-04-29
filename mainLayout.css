@@ -103,3 +103,11 @@ thead {
 .entry, .favEntry {
   cursor:pointer;
 }
+
+.text.container {
+  margin-top:20px;
+}
+
+.active.small.modal#loginModal {
+  top:245px;
+}
