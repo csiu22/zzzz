@@ -8,6 +8,13 @@ var loadButtons = function(){
             content.innerHTML = favVar;
             document.getElementById('favoritesContent').appendChild(content);
             $('#favoritesModal').modal('show');
+            if (favorites.length == 0) {
+              console.log("empty");
+              $('#btnPlaylist').addClass('disabled');
+            } else {
+              console.log("stuff");
+              $('#btnPlaylist').removeClass('disabled');
+            }
           });
 
           $('#btnMySettings').click(function(e) {
@@ -49,6 +56,10 @@ var loadButtons = function(){
             content.innerHTML = favVar;
             document.getElementById('favoritesContent').appendChild(content);
             $('#btnFavorite').addClass('empty');
+            if (favorites.length == 0) {
+              console.log("empty");
+              $('#btnPlaylist').addClass('disabled');
+            }
           };
 
           // play specific content from favorites
@@ -116,6 +127,7 @@ var loadButtons = function(){
             document.getElementById("btnShuffle").setAttribute("data-content", "Next");
             playContent(favorites[0]);
             $('#favoritesModal').modal('hide');
+
           });
 
 
