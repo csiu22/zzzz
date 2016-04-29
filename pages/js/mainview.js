@@ -156,17 +156,18 @@ var loadButtons = function(){
 
 
           $('#btnLogout').click(function(e) {
-            console.log("logout");
-            document.getElementById("btnLogin").style.display = "block";
-            document.getElementById("welcome").style.display = "none";
+            // console.log("logout");
+            // document.getElementById("btnLogin").style.display = "block";
+            // document.getElementById("welcome").style.display = "none";
+            $('#loginModal').modal('show dimmer');
+             $('#loginModal').modal('show');
+
           });
 
           $(document).on( "click" , "#login" , function(e){
             user = document.getElementById("username").value;
-            document.getElementById("loggedInUser").innerHTML = user;
-            document.getElementById("btnLogin").style.display = "none";
-            document.getElementById("welcome").style.display = "block";
-            $(".dropdown").dropdown();
+            currentlyPlaying = welcome_content; // let's create welcome content for the first screen
+            playContent(currentlyPlaying);
             $('#loginModal').modal('hide');
           } );
 

@@ -16,8 +16,6 @@
     totalContent = {};
 
     loadContent();
-    currentlyPlaying = welcome_content; // let's create welcome content for the first screen
-    playContent(currentlyPlaying);
 
     loadButtons();
 
@@ -47,8 +45,8 @@ var copyEntry = function(i) {
 var playContent = function(content){
 
       if (content.type === "welcome") {
-        insert = '<h1 class="ui header"> <div class="content">'+ content.title + '</div> </h1>' +
-                 '<br> <div style="font-size:20px;"> Shuffle through what we have in store for you mindlessly to your heart\'s content.' +
+        insert = '<h1 class="ui header"> <div class="content">'+ content.title + ", " + user + "."+'</div> </h1>' +
+                 '<br> <div style="font-size:20px;"> Mindlessly shuffle to your heart\'s content.' +
                  '<br> Click on the <i class="tiny circular random icon"></i> to get random material. No two visits to this page will be the same </div>' ;
         document.getElementById("content").innerHTML=insert;
         return;
