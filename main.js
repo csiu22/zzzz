@@ -16,14 +16,26 @@
     totalContent = {};
 
     loadContent();
-    currentlyPlaying = welcome_content; // let's create welcome content for the first screen
-    playContent(currentlyPlaying);
 
     loadButtons();
 
     $('#loginModal').modal('show dimmer');
 
 });
+
+var flush_variables = function(){
+
+    disabled_categories = [];
+    favorites = [];
+    fav_dict = {};
+    my_journal = [];
+    entries_to_delete = [];
+    backStack = [];
+    forwardStack = [];
+    playList = [];
+    user = undefined;
+
+}
 
 
 var getIcon = function(category) {
@@ -44,11 +56,18 @@ var copyEntry = function(i) {
   playContent(temp_entry);
 }
 
+var login_message = function(){
+  insert ='<h1 class="ui header"> <div class="content"> You are now logged out. </div> </h1>';
+  insert += '<br> <div style="font-size:20px;"> Please log in to use the site.</div>';
+  document.getElementById("content").innerHTML=insert;
+}
+
+
 var playContent = function(content){
 
       if (content.type === "welcome") {
-        insert = '<h1 class="ui header"> <div class="content">'+ content.title + '</div> </h1>' +
-                 '<br> <div style="font-size:20px;"> Shuffle through what we have in store for you mindlessly to your heart\'s content.' +
+        insert = '<h1 class="ui header"> <div class="content">'+ content.title + ", " + user + "."+'</div> </h1>' +
+                 '<br> <div style="font-size:20px;"> Mindlessly shuffle to your heart\'s content.' +
                  '<br> Click on the <i class="tiny circular random icon"></i> to get random material. No two visits to this page will be the same </div>' ;
         document.getElementById("content").innerHTML=insert;
         return;
@@ -76,7 +95,7 @@ var playContent = function(content){
                   // '<textarea autofocus> </textarea>'+
                    //'<textarea id="response"> </textarea>' +
 
-                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2" autofocus></textarea> </div> </div>' +
+                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="8" autofocus></textarea> </div> </div>' +
                    '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
                    '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
@@ -86,7 +105,7 @@ var playContent = function(content){
                   // '<textarea autofocus> </textarea>'+
                    //'<textarea id="response"> </textarea>' +
 
-                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2" autofocus>' + content["text"] + '</textarea> </div> </div>' +
+                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="8" autofocus>' + content["text"] + '</textarea> </div> </div>' +
                    '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
                    '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;

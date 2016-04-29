@@ -2,6 +2,11 @@ var loadButtons = function(){
 
 
           $('#btnMyFavorites').click(function(e) {
+            if(user == undefined){
+              $('#loginModal').modal('show');
+              return;
+            }
+
             var favVar = loadFavorites();
             console.log(favVar);
             document.getElementById('favoritesContent').innerHTML = '';
@@ -19,10 +24,18 @@ var loadButtons = function(){
           });
 
           $('#btnMySettings').click(function(e) {
+              if(user == undefined){
+              $('#loginModal').modal('show');
+              return;
+            }
                   settings_functions();
           });
 
           $('#btnMyJournal').click(function(e) {
+              if(user == undefined){
+              $('#loginModal').modal('show');
+              return;
+            }
               loadJournalPage();
           });
 
@@ -156,12 +169,12 @@ var loadButtons = function(){
           });
 
           $(document).on("click", "#response", function(){
-            console.log('hi');
+        
             document.getElementById("saveMessage").style.display = "none";
           });
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
-              console.log('hi');
+  
               loadJournalPage();
               $('#journalModal').modal('show');
           } );
@@ -169,26 +182,49 @@ var loadButtons = function(){
 
           $('#btnLogin').click(function(e) {
               $('#loginModal').modal('show');
+              $("#loginfield").show();
+              $("#loginfield").children().show();
           });
 
 
           $('#btnLogout').click(function(e) {
-            console.log("logout");
-            document.getElementById("btnLogin").style.display = "block";
-            document.getElementById("welcome").style.display = "none";
+
+             flush_variables();
+             $(".icon").hide()
+             $("#btnLogin").show()
+             login_message();
           });
 
-          $(document).on( "click" , "#login" , function(e){
+          var submit_login = function() {
             user = document.getElementById("username").value;
-            document.getElementById("loggedInUser").innerHTML = user;
-            document.getElementById("btnLogin").style.display = "none";
-            document.getElementById("welcome").style.display = "block";
-            $(".dropdown").dropdown();
+            currentlyPlaying = welcome_content; // let's create welcome content for the first screen
+            playContent(currentlyPlaying);
             $('#loginModal').modal('hide');
+            $(".icon").show()
+            $("#btnLogin").hide()
+
+          }
+
+          $(document).on( "click" , "#login" , function(e){
+            submit_login();
           } );
+
+
+          $(document).on("keydown", "input#username", function(e) {
+            if (e.keyCode == 13) {
+              e.preventDefault();
+              $('#loginModal').modal('hide');
+              submit_login();
+            }
+          });
 
           //$('#btnShuffle').click(function(e) {
           $(document).on("click", "#btnShuffle", function(e) {
+            if(user == undefined){
+              $('#loginModal').modal('show');
+              return
+            }
+
             document.getElementById('content').innerHTML = '';
             document.getElementById('btnBack').disabled = false;
             document.getElementById('btnFavorite').disabled = false;
@@ -222,6 +258,11 @@ var loadButtons = function(){
 
 
           $('#btnBack').click(function(e) {
+            if(user == undefined){
+              $('#loginModal').modal('show');
+              return
+            }
+
             if (backStack.length === 0) document.getElementById('btnBack').disabled = true;
             else document.getElementById('btnBack').disabled = false;
             playBack();
@@ -239,6 +280,11 @@ var loadButtons = function(){
 
 
           $('#btnFavorite').click(function(e) {
+             if(user == undefined){
+              $('#loginModal').modal('show');
+              return
+            }
+
               if(currentlyPlaying){
                 if (!(currentlyPlaying.title in fav_dict)) {
                   fav_dict[currentlyPlaying.title] = 0;

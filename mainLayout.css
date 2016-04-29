@@ -104,8 +104,17 @@ thead {
   cursor:pointer;
 }
 
+
 #journalContent {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.text.container {
+  margin-top:20px;
+}
+
+.active.small.modal#loginModal {
+  top:15em;
 }
 
