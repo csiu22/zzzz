@@ -127,6 +127,10 @@ var settings_functions = function(){
     }
 
 
+	$(".ui.toggle.checkbox").click(function(e){
+    e.stopPropagation();
+  });
+
 	$(".ui.toggle.checkbox").checkbox({
     onUnchecked: function() {
     	var setting = $(this)[0].name;
@@ -138,7 +142,7 @@ var settings_functions = function(){
 		disabled_categories.push(setting);
     },
 	onChecked: function() {
-         var setting = $(this)[0].name;
+     var setting = $(this)[0].name;
     	var index = disabled_categories.indexOf(setting);
     	if(index != -1) {
     		if (index > -1) {
