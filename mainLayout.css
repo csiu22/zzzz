@@ -13,6 +13,10 @@ body{
     background-color: #ffffe0;
 }
 
+h4 {
+  font-size: 1.15rem;
+}
+
 #displayport {
 	height: 60%;
 }
@@ -158,4 +162,8 @@ thead {
 .ui.modal > .content {
   padding-top: 0em;
   padding-bottom: 0em;
+}
+
+#btnSaveEntry {
+  margin:0em;
 }

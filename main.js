@@ -95,20 +95,20 @@ var playContent = function(content){
                   // '<textarea autofocus> </textarea>'+
                    //'<textarea id="response"> </textarea>' +
 
-                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="8" autofocus></textarea> </div> </div>' +
+                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="8" autofocus style="font-size:1.1em;"></textarea> </div> </div>' +
                    '<br><button class="ui green button" id="btnSaveEntry" style="float:right"> <i class="save icon"></i> Save to Journal </button>' +
                    '<button class="ui teal button" id="btnPastEntries" style="float:left"> <i class="edit icon"></i> View My Journal </button>' +
-                   '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
+                   '<br> <span id="saveMessage" style="color:green; display:none; font-size:1.05em;"> successfully saved! </span>' ;
           } else if (content["copied"]) {
             insert += //"<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
                    //'<h2 class="ui header"> <i class="edit icon"></i> <div class="content">'+ content.title + '</div> </h2>' +
                   // '<textarea autofocus> </textarea>'+
                    //'<textarea id="response"> </textarea>' +
 
-                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="8" autofocus>' + content["text"] + '</textarea> </div> </div>' +
-                   '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
-                   '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
-                   '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
+                   '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="8" autofocus style="font-size:1.1em;">' + content["text"] + '</textarea> </div> </div>' +
+                   '<br><button class="ui green button" id="btnSaveEntry" style="float:right"> <i class="save icon"></i> Save to Journal </button>' +
+                   '<button class="ui teal button" id="btnPastEntries" style="float:left"> <i class="edit icon"></i> View My Journal </button>' +
+                   '<br> <span id="saveMessage" style="color:green; display:none; font-size:1.05em;"> successfully saved! </span>' ;
 
             console.log("COPIED");
             content["copied"] = false;
@@ -116,18 +116,18 @@ var playContent = function(content){
             var ind = my_journal.indexOf(content);
             insert +=
                    //'<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="2" autofocus></textarea> </div> </div>' +
-                   '<h3> On ' + (Number(content.date.getMonth())+1)+"\/"+content.date.getDate()+"\/"+content.date.getFullYear() + ' you wrote: </h3><br>' +
+                   '<h3> On ' + (Number(content.date.getMonth())+1)+"\/"+content.date.getDate()+"\/"+content.date.getFullYear() + ', you wrote: </h3><h4>' +
                    content["text"] +
-                   '<br>'+
+                   '</h4><br>'+
                    //'<br><button class="ui button" id="btnCopyEntry"> <i class="copy icon"></i> Copy Entry </button>' +
                    '<br><button class="ui teal button" style="float:left" onclick="copyEntry(' + ind + ')"> <i class="copy icon"></i> Copy Entry </button>' +
                    '<button class="ui red button" style="float:right" onclick="removeEntry(' + ind + ', true)"> <i class="trash outline icon"></i> Delete Entry </button>' +
-                   '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
+                   '<br> <span id="saveMessage" style="color:green; display:none; font-size:1.05em;"> successfully saved! </span>' ;
           }
       } else if(content.type === "tips_quotes"){
             //display tips and quotes
             insert = "<h2>"+ content.title+"</h2>";
-            insert += "<br><h4>"+ content.text + "<h4>";
+            insert += "<br><h3>"+ content.text + "</h3>";
       } else{
             //throw error
       }
