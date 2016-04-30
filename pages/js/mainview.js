@@ -276,6 +276,7 @@ var loadButtons = function(){
 
 
           $('#btnFavorite').click(function(e) {
+            console.log(fav_dict);
              if(user == undefined){
               $('#loginModal').modal('show');
               return
@@ -289,7 +290,7 @@ var loadButtons = function(){
                   console.log("trying to unfav")
                   var index = favorites.indexOf(currentlyPlaying);
                   favorites.splice(index, 1);
-                  delete favorites[currentlyPlaying.title];
+                  delete fav_dict[currentlyPlaying.title];
                 }
 
               }
