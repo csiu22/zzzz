@@ -113,8 +113,10 @@ thead {
 /*  padding-bottom: 1.5rem;*/
 }
 
-.text.container {
-  margin-top:20px;
+.ui.dividing.header {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 .active.small.modal#loginModal {
@@ -166,4 +168,9 @@ thead {
 
 #btnSaveEntry {
   margin:0em;
+}
+
+.ui.stacked.segment {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
