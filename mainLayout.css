@@ -104,7 +104,6 @@ thead {
   cursor:pointer;
 }
 
-
 #journalContent {
   padding-top: 1.5rem;
 /*  padding-bottom: 1.5rem;*/
@@ -131,4 +130,32 @@ thead {
 .ui.modal .actions > .button {
   margin-left: 0em;
   margin-right: 0em;
+}
+
+.ui.table {
+  font-size: 1.1em;
+}
+
+.ui.segment {
+  border:none;
+  box-shadow: none;
+}
+
+.ui.stacked.segment:after, .ui.stacked.segments:after {
+  border-top: none;
+  background: none;
+}
+
+.ui.styled.accordion {
+  box-shadow: none;
+}
+
+.ui.segments {
+  margin:0em;
+  border: none;
+}
+
+.ui.modal > .content {
+  padding-top: 0em;
+  padding-bottom: 0em;
 }

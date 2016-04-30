@@ -96,8 +96,8 @@ var playContent = function(content){
                    //'<textarea id="response"> </textarea>' +
 
                    '<div class="ui form" id="response2"> <div class="field" > <textarea id="response" rows="8" autofocus></textarea> </div> </div>' +
-                   '<br><button class="ui button" id="btnSaveEntry"> <i class="save icon"></i> Save to Journal </button>' +
-                   '<button class="ui button" id="btnPastEntries"> <i class="edit icon"></i> View My Journal </button>' +
+                   '<br><button class="ui green button" id="btnSaveEntry" style="float:right"> <i class="save icon"></i> Save to Journal </button>' +
+                   '<button class="ui teal button" id="btnPastEntries" style="float:left"> <i class="edit icon"></i> View My Journal </button>' +
                    '<br> <span id="saveMessage" style="color:green; display:none"> successfully saved! </span>' ;
           } else if (content["copied"]) {
             insert += //"<div class='activityIcon'><i class='large edit icon'></i></div><h2>"+ content.title+"</h2>" +
