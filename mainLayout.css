@@ -104,8 +104,12 @@ thead {
   padding-right: 1.5rem;
 }
 
-.entry, .favEntry {
+.entry, .favEntry, #my_entries, #new_entries {
   cursor:pointer;
+}
+
+.entry:hover, .favEntry:hover, #my_entries:hover, #new_entries:hover {
+  font-weight:bold;
 }
 
 #journalContent {
