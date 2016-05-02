@@ -22,7 +22,7 @@ var loadContent = function(){
 	];
 
 	totalContent["music"] = [
-	{category: "Music", title:"RAIN WITH DISTANT THUNDER", type:"video", url:"https://youtube.com/embed/UHEtKwgujNA?list=PLCStOTQcjfZs87ftab-tSm2inxAkMS6dj"},
+	{category: "Music", title:"Rain with Distant Thunder", type:"video", url:"https://youtube.com/embed/UHEtKwgujNA?list=PLCStOTQcjfZs87ftab-tSm2inxAkMS6dj"},
 
 	];
 
