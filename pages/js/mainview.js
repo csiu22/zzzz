@@ -73,7 +73,10 @@ var loadButtons = function(){
             var content = document.createElement('div');
             content.innerHTML = favVar;
             document.getElementById('favoritesContent').appendChild(content);
-            $('#btnFavorite').addClass('empty');
+
+            if (title == currentlyPlaying.title) {
+              $('#btnFavorite').addClass('empty');
+            }
             if (favorites.length == 0) {
               console.log("empty");
               $('#btnPlaylist').addClass('disabled');
@@ -86,7 +89,7 @@ var loadButtons = function(){
             // var id = $(this).attr('id').substr(4);
             //var row = document.getElementById('entry' + id);
             var content = favorites[id];
-            backStack.push(currentlyPlaying);  // not sure what to do about back/forward when playing from favorites
+            backStack.push(currentlyPlaying);  
             forwardStack = [];
             playContent(content);
             $('#btnFavorite').removeClass('empty');
