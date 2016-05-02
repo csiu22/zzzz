@@ -38,23 +38,11 @@ var loadButtons = function(){
           });
 
           var loadJournalPage = function(){
-              // var journalVar = loadJournalView();
-              // document.getElementById('journalView').innerHTML = '';
-              // var content = document.createElement('div');
-              // content.innerHTML = journalVar;
-              // document.getElementById('journalView').appendChild(content);
-
               var journalVar = loadJournalView();
               document.getElementById('journalView').innerHTML = journalVar;
-              // var content = document.createElement('div');
-              // content.innerHTML = journalVar;
-              // document.getElementById('journalView').appendChild(content);
 
               var promptsVar = loadJournalPrompts();
               document.getElementById('journalEdit').innerHTML = promptsVar;
-              // var content = document.createElement('div');
-              // content.innerHTML = promptsVar;
-              // document.getElementById('journalEdit').appendChild(content);
 
               $('.menu .item').tab();
               $('#journalModal').modal('show');
@@ -78,7 +66,6 @@ var loadButtons = function(){
               $('#btnFavorite').addClass('empty');
             }
             if (favorites.length == 0) {
-              console.log("empty");
               $('#btnPlaylist').addClass('disabled');
             }
           };
@@ -89,7 +76,7 @@ var loadButtons = function(){
             // var id = $(this).attr('id').substr(4);
             //var row = document.getElementById('entry' + id);
             var content = favorites[id];
-            backStack.push(currentlyPlaying);  
+            backStack.push(currentlyPlaying);
             forwardStack = [];
             playContent(content);
             $('#btnFavorite').removeClass('empty');
@@ -281,13 +268,14 @@ var loadButtons = function(){
 
 
           $('#btnFavorite').click(function(e) {
-            console.log(fav_dict);
+
             if (user == undefined) {
               $('#loginModal').modal('show');
               return
             }
 
               if(currentlyPlaying){
+                console.log(currentlyPlaying);
                 if (!(currentlyPlaying.title in fav_dict)) {
                   fav_dict[currentlyPlaying.title] = 0;
                   favorites.push(currentlyPlaying);
@@ -302,13 +290,8 @@ var loadButtons = function(){
 
               }
 
-
             $(this).toggleClass('empty');
-
-            // $(this).find('i').toggleClass('heart icon huge red link');
-            // $('#btnMyFavorites').remove();
-            // $("favRow").append("<i id=\"btnFavorite\" class=\"heart icon huge red link\"></i>");
-
+            console.log(fav_dict);
           });
 
 $('.icon').popup({
