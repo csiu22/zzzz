@@ -79,6 +79,7 @@ var loadButtons = function(){
             backStack.push(currentlyPlaying);
             forwardStack = [];
             playContent(content);
+            currentlyPlaying = content;
             $('#btnFavorite').removeClass('empty');
             $('#favoritesModal').modal('hide');
           };
@@ -129,6 +130,8 @@ var loadButtons = function(){
             document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
             document.getElementById("btnShuffle").setAttribute("data-content", "Next");
             playContent(favorites[0]);
+            currentlyPlaying = favorites[0];
+            $('#btnFavorite').removeClass('empty');
             $('#favoritesModal').modal('hide');
 
           });
