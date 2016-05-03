@@ -64,6 +64,7 @@ var loadButtons = function(){
 
             if (title == currentlyPlaying.title) {
               $('#btnFavorite').addClass('empty');
+              $('#btnFavorite').attr("data-content", "Favorite");
             }
             if (favorites.length == 0) {
               $('#btnPlaylist').addClass('disabled');
@@ -81,6 +82,7 @@ var loadButtons = function(){
             playContent(content);
             currentlyPlaying = content;
             $('#btnFavorite').removeClass('empty');
+            $('#btnFavorite').attr("data-content", "Unfavorite");
             $('#favoritesModal').modal('hide');
           };
 
