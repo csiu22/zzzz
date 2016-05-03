@@ -135,7 +135,7 @@ var loadButtons = function(){
               document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
               document.getElementById("btnShuffle").setAttribute("data-content", "Next");
             }
-            
+
             playContent(favorites[0]);
             currentlyPlaying = favorites[0];
             $('#btnFavorite').removeClass('empty');
@@ -183,8 +183,10 @@ var loadButtons = function(){
           $('#btnLogout').click(function(e) {
 
              flush_variables();
-             $(".icon").hide()
-             $("#btnLogin").show()
+             $(".icon").hide();
+             $("#btnLogin").show();
+             $('#btnFavorite').addClass('empty');
+             $('#btnFavorite').attr("data-content", "Favorite");
              login_message();
           });
 
@@ -303,7 +305,7 @@ var loadButtons = function(){
                 }
               }
 
-            
+
           });
 
 $('.icon').popup({
