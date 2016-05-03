@@ -15,10 +15,8 @@ var loadButtons = function(){
             document.getElementById('favoritesContent').appendChild(content);
             $('#favoritesModal').modal('show');
             if (favorites.length == 0) {
-              console.log("empty");
               $('#btnPlaylist').addClass('disabled');
             } else {
-              console.log("stuff");
               $('#btnPlaylist').removeClass('disabled');
             }
           });
@@ -41,16 +39,10 @@ var loadButtons = function(){
 
           var loadJournalPage = function(){
               var journalVar = loadJournalView();
-              document.getElementById('journalView').innerHTML = '';
-              var content = document.createElement('div');
-              content.innerHTML = journalVar;
-              document.getElementById('journalView').appendChild(content);
+              document.getElementById('journalView').innerHTML = journalVar;
 
               var promptsVar = loadJournalPrompts();
-              document.getElementById('journalEdit').innerHTML = '';
-              var content = document.createElement('div');
-              content.innerHTML = promptsVar;
-              document.getElementById('journalEdit').appendChild(content);
+              document.getElementById('journalEdit').innerHTML = promptsVar;
 
               $('.menu .item').tab();
               $('#journalModal').modal('show');
@@ -69,9 +61,12 @@ var loadButtons = function(){
             var content = document.createElement('div');
             content.innerHTML = favVar;
             document.getElementById('favoritesContent').appendChild(content);
-            $('#btnFavorite').addClass('empty');
+
+            if (title == currentlyPlaying.title) {
+              $('#btnFavorite').addClass('empty');
+              $('#btnFavorite').attr("data-content", "Favorite");
+            }
             if (favorites.length == 0) {
-              console.log("empty");
               $('#btnPlaylist').addClass('disabled');
             }
           };
@@ -82,10 +77,12 @@ var loadButtons = function(){
             // var id = $(this).attr('id').substr(4);
             //var row = document.getElementById('entry' + id);
             var content = favorites[id];
-            backStack.push(currentlyPlaying);  // not sure what to do about back/forward when playing from favorites
+            backStack.push(currentlyPlaying);
             forwardStack = [];
             playContent(content);
+            currentlyPlaying = content;
             $('#btnFavorite').removeClass('empty');
+            $('#btnFavorite').attr("data-content", "Unfavorite");
             $('#favoritesModal').modal('hide');
           };
 
@@ -93,16 +90,12 @@ var loadButtons = function(){
           var loadFavorites = function() {
             var favVar = "";
 
-            // favVar += "<h1> My Favorites </h1>";
-
             favVar += "<table class=\"ui striped table\">";
             favVar += "  <thead>";
             favVar += "    <tr>";
             favVar += "      <th>Title</th>";
             favVar += "      <th>Category</th>";
             favVar += "      <th></th>";
-            // favVar += "      <th>Play</th>";
-            // favVar += "      <th>Delete</th>";
             favVar += "    </tr>";
             favVar += "  </thead>";
             favVar += "  <tbody>";
@@ -134,13 +127,19 @@ var loadButtons = function(){
               var content = favorites[i];
               forwardStack.push(content);
             }
-            //changes shuffle to forward
-            document.getElementById('btnShuffle').value = "Forward";
-            document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
-            document.getElementById("btnShuffle").setAttribute("data-content", "Next");
-            playContent(favorites[0]);
-            $('#favoritesModal').modal('hide');
 
+            console.log(forwardStack.length);
+            //changes shuffle to forward
+            if (forwardStack.length >= 1) {
+              document.getElementById('btnShuffle').value = "Forward";
+              document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
+              document.getElementById("btnShuffle").setAttribute("data-content", "Next");
+            }
+            
+            playContent(favorites[0]);
+            currentlyPlaying = favorites[0];
+            $('#btnFavorite').removeClass('empty');
+            $('#favoritesModal').modal('hide');
           });
 
 
@@ -163,12 +162,12 @@ var loadButtons = function(){
           });
 
           $(document).on("click", "#response", function(){
-        
+
             document.getElementById("saveMessage").style.display = "none";
           });
 
           $(document).on( "click" , "#btnPastEntries" , function(e){
-  
+
               loadJournalPage();
               $('#journalModal').modal('show');
           } );
@@ -245,8 +244,10 @@ var loadButtons = function(){
 
             if (currentlyPlaying.title in fav_dict) {
               $('#btnFavorite').removeClass('empty');
+              $('#btnFavorite').attr("data-content", "Unfavorite");
             } else {
               $('#btnFavorite').addClass('empty');
+              $('#btnFavorite').attr("data-content", "Favorite");
             }
           });
 
@@ -267,38 +268,42 @@ var loadButtons = function(){
 
             if (currentlyPlaying.title in fav_dict) {
               $('#btnFavorite').removeClass('empty');
+              $('#btnFavorite').attr("data-content", "Unfavorite");
             } else {
               $('#btnFavorite').addClass('empty');
+              $('#btnFavorite').attr("data-content", "Favorite");
             }
           });
 
 
           $('#btnFavorite').click(function(e) {
-             if(user == undefined){
+
+            if (user == undefined) {
               $('#loginModal').modal('show');
               return
             }
 
               if(currentlyPlaying){
-                if (!(currentlyPlaying.title in fav_dict)) {
-                  fav_dict[currentlyPlaying.title] = 0;
-                  favorites.push(currentlyPlaying);
-                } else {
-                  console.log("trying to unfav")
-                  var index = favorites.indexOf(currentlyPlaying);
-                  favorites.splice(index, 1);
-                  delete favorites[currentlyPlaying.title];
-                }
+                console.log(currentlyPlaying);
+                if (currentlyPlaying.title != 'Welcome') {
+                  if (!(currentlyPlaying.title in fav_dict)) {
+                    fav_dict[currentlyPlaying.title] = 0;
+                    favorites.push(currentlyPlaying);
+                    $(this).attr("data-content", "Unfavorite");
+                  } else {
+                    console.log("trying to unfav")
+                    var index = favorites.indexOf(currentlyPlaying);
+                    favorites.splice(index, 1);
+                    delete fav_dict[currentlyPlaying.title];
+                    $(this).attr("data-content", "Favorite");
+                  }
 
+                  $(this).toggleClass('empty');
+                  console.log(fav_dict);
+                }
               }
 
-
-            $(this).toggleClass('empty');
-
-            // $(this).find('i').toggleClass('heart icon huge red link');
-            // $('#btnMyFavorites').remove();
-            // $("favRow").append("<i id=\"btnFavorite\" class=\"heart icon huge red link\"></i>");
-
+            
           });
 
 $('.icon').popup({

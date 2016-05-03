@@ -13,6 +13,10 @@ body{
     background-color: #ffffe0;
 }
 
+h4 {
+  font-size: 1.15rem;
+}
+
 #displayport {
 	height: 60%;
 }
@@ -95,20 +99,82 @@ thead {
   width: 1.5em;
 }
 
-#journal, #favoritesContent{
+#journalView, #journalEdit, #favoritesContent {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
-.entry, .favEntry {
+.entry, .favEntry, #my_entries, #new_entries {
   cursor:pointer;
 }
 
-.text.container {
-  margin-top:20px;
+.entry:hover, .favEntry:hover, #my_entries:hover, #new_entries:hover {
+  font-weight:bold;
+}
+
+#journalContent {
+  padding-top: 1.5rem;
+/*  padding-bottom: 1.5rem;*/
+}
+
+.ui.dividing.header {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 .active.small.modal#loginModal {
   top:15em;
 }
 
+.ui.modal > .header {
+  border-bottom: none;
+}
+
+.ui.modal > .actions {
+  border-top: none;
+  background: none;
+  padding: 1.5rem;
+}
+
+.ui.modal .actions > .button {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+.ui.table {
+  font-size: 1.1em;
+}
+
+.ui.segment {
+  border:none;
+  box-shadow: none;
+}
+
+.ui.stacked.segment:after, .ui.stacked.segments:after {
+  border-top: none;
+  background: none;
+}
+
+.ui.styled.accordion {
+  box-shadow: none;
+}
+
+.ui.segments {
+  margin:0em;
+  border: none;
+}
+
+.ui.modal > .content {
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+
+#btnSaveEntry {
+  margin:0em;
+}
+
+.ui.stacked.segment {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

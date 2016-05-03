@@ -34,17 +34,15 @@ deleteEntries = function() {
 var loadJournalView = function(){
 
 var journalVar="";
-// journalVar += " <h1>";
-// journalVar += "   My Journal Entries";
-// journalVar += " <\/h1>";
-journalVar += "  <div id = \"journal\">";
+// journalVar += "  <div id = \"journal\">";
 journalVar += "  <table class=\"ui striped table\">";
 journalVar += "    <thead>";
 journalVar += "      <tr>";
-journalVar += "        <th>Date<\/th>";
-journalVar += "        <th>Entry<\/th>";
-journalVar += "      <\/tr>";
-journalVar += "    <\/thead>";
+journalVar += "        <th>Date</th>";
+journalVar += "        <th>Entry</th>";
+journalVar += "        <th> </th>";
+journalVar += "      </tr>";
+journalVar += "    </thead>";
 journalVar += "    <tbody>";
 
 for(i=0; i<my_journal.length; i++){
@@ -54,15 +52,13 @@ journalVar += "      <tr class='entry' id=\"entry" + i +"\" >";
 journalVar += "        <td class=\"date\" onclick='playEntry(" + i +")'>"+ (Number(entry.date.getMonth())+1)+"\/"+entry.date.getDate()+"\/"+entry.date.getFullYear()+"<\/td>";
 journalVar += "        <td onclick='playEntry(" + i +")'>"+ entry.text +"<\/td>";
 journalVar += "        <td><i class='large trash outline icon' onclick='removeEntry(" + i + ")'></i><\/td>";
-journalVar += "        <td><\/td>";
-journalVar += "      <\/tr>";
+journalVar += "      </tr>";
 }
 
-journalVar += "    <\/tbody>";
-journalVar += "  <\/table>";
+journalVar += "    </tbody>";
+journalVar += "  </table>";
 
-//journalVar +=  "<button class=\"ui red button right floated\" id=\"home\">Home<\/button>";
-journalVar += "<\/div>";
+// journalVar += "<\/div>";
 
 return journalVar;
 
@@ -73,27 +69,26 @@ var loadJournalPrompts = function(){
 var prompts = totalContent["journalEntries"];
 
 var journalVar="";
-journalVar += "  <div id = \"journalPrompts\">";
+// journalVar += "  <div id = \"journalPrompts\">";
 journalVar += "  <table class=\"ui striped table\">";
 journalVar += "    <thead>";
 journalVar += "      <tr>";
-journalVar += "        <th>Prompt<\/th>";
-journalVar += "      <\/tr>";
-journalVar += "    <\/thead>";
+journalVar += "        <th>Prompt</th>";
+journalVar += "      </tr>";
+journalVar += "    </thead>";
 journalVar += "    <tbody>";
 
 for(i=0; i<prompts.length; i++){
 
 journalVar += "      <tr class='entry' id=\"prompt" + i +"\" >";
-journalVar += "        <td class=\"date\" onclick='goToPrompt(" + i +")'>"+ prompts[i].title+"<\/td>";
-journalVar += "        <td><\/td>";
-journalVar += "      <\/tr>";
+journalVar += "        <td class='promptEntry' onclick='goToPrompt(" + i +")'>"+ prompts[i].title+"</td>";
+journalVar += "      </tr>";
 }
 
-journalVar += "    <\/tbody>";
-journalVar += "  <\/table>";
+journalVar += "    </tbody>";
+journalVar += "  </table>";
 
-journalVar += "<\/div>";
+// journalVar += "<\/div>";
 
 return journalVar;
 
