@@ -285,22 +285,25 @@ var loadButtons = function(){
 
               if(currentlyPlaying){
                 console.log(currentlyPlaying);
-                if (!(currentlyPlaying.title in fav_dict)) {
-                  fav_dict[currentlyPlaying.title] = 0;
-                  favorites.push(currentlyPlaying);
-                  $(this).attr("data-content", "Unfavorite");
-                } else {
-                  console.log("trying to unfav")
-                  var index = favorites.indexOf(currentlyPlaying);
-                  favorites.splice(index, 1);
-                  delete fav_dict[currentlyPlaying.title];
-                  $(this).attr("data-content", "Favorite");
-                }
+                if (currentlyPlaying.title != 'Welcome') {
+                  if (!(currentlyPlaying.title in fav_dict)) {
+                    fav_dict[currentlyPlaying.title] = 0;
+                    favorites.push(currentlyPlaying);
+                    $(this).attr("data-content", "Unfavorite");
+                  } else {
+                    console.log("trying to unfav")
+                    var index = favorites.indexOf(currentlyPlaying);
+                    favorites.splice(index, 1);
+                    delete fav_dict[currentlyPlaying.title];
+                    $(this).attr("data-content", "Favorite");
+                  }
 
+                  $(this).toggleClass('empty');
+                  console.log(fav_dict);
+                }
               }
 
-            $(this).toggleClass('empty');
-            console.log(fav_dict);
+            
           });
 
 $('.icon').popup({
