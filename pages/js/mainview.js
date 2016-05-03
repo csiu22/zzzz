@@ -127,15 +127,19 @@ var loadButtons = function(){
               var content = favorites[i];
               forwardStack.push(content);
             }
+
+            console.log(forwardStack.length);
             //changes shuffle to forward
-            document.getElementById('btnShuffle').value = "Forward";
-            document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
-            document.getElementById("btnShuffle").setAttribute("data-content", "Next");
+            if (forwardStack.length >= 1) {
+              document.getElementById('btnShuffle').value = "Forward";
+              document.getElementById('btnShuffle').className = "verticalcenter circular arrow right icon huge link"
+              document.getElementById("btnShuffle").setAttribute("data-content", "Next");
+            }
+            
             playContent(favorites[0]);
             currentlyPlaying = favorites[0];
             $('#btnFavorite').removeClass('empty');
             $('#favoritesModal').modal('hide');
-
           });
 
 
