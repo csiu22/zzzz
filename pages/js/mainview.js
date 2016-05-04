@@ -202,6 +202,9 @@ var loadButtons = function(){
           }
 
           $(document).on( "click" , "#login" , function(e){
+            document.getElementById('btnShuffle').value = "Shuffle";
+            document.getElementById('btnShuffle').className = "verticalcenter circular random icon huge link"
+            document.getElementById("btnShuffle").setAttribute("data-content", "Shuffle");
             submit_login();
           } );
 
