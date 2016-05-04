@@ -26,6 +26,7 @@
 var flush_variables = function(){
 
     disabled_categories = [];
+    categories = ["binauralBeats", "journalEntries", "tips_quotes", "ASMR", 'videos', "music", "relaxation"];
     favorites = [];
     fav_dict = {};
     my_journal = [];
