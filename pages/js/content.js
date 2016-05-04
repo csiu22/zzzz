@@ -23,6 +23,8 @@ var loadContent = function(){
 
 	totalContent["music"] = [
 	{category: "Music", title:"Rain with Distant Thunder", type:"video", url:"https://youtube.com/embed/UHEtKwgujNA?list=PLCStOTQcjfZs87ftab-tSm2inxAkMS6dj"},
+	{category: "Music", title:"Ocean Waves Crashing - Relaxing Sounds", type:"video", url:"https://www.youtube.com/embed/PoAeFpUB1hA"},
+
 
 	];
 
@@ -46,6 +48,7 @@ var loadContent = function(){
 
 	totalContent["videos"] = [
 	{category: "Video", title:"Bob Ross - Ocean Breeze", type:"video", url:"https://youtube.com/embed/XZmdzfvXRuw?list=PLCStOTQcjfZufFlCB81lyokEN9q2Mk2Om"},
+	{category: "Video", title:"Bob Ross - The Joy of Painting", type:"video", url:"https://www.youtube.com/embed/kasGRkfkiPM?list=PLCStOTQcjfZufFlCB81lyokEN9q2Mk2Om"},
 
 	];
 
