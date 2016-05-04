@@ -71,6 +71,7 @@ var playContent = function(content){
                  '<br> <div style="font-size:20px;"> Mindlessly shuffle to your heart\'s content.' +
                  '<br> Click on the <i class="tiny circular random icon"></i> to get random material. No two visits to this page will be the same </div>' ;
         document.getElementById("content").innerHTML=insert;
+        $("#btnFavorite").hide();
         return;
       }
 
