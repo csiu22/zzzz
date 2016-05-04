@@ -177,6 +177,7 @@ var loadButtons = function(){
               $('#loginModal').modal('show');
               $("#loginfield").show();
               $("#loginfield").children().show();
+
           });
 
 
@@ -197,7 +198,7 @@ var loadButtons = function(){
             $('#loginModal').modal('hide');
             $(".icon").show()
             $("#btnLogin").hide()
-
+            $("#btnFavorite").hide();
           }
 
           $(document).on( "click" , "#login" , function(e){
@@ -219,7 +220,7 @@ var loadButtons = function(){
               $('#loginModal').modal('show');
               return
             }
-
+            $("#btnFavorite").show();
             document.getElementById('content').innerHTML = '';
             document.getElementById('btnBack').disabled = false;
             document.getElementById('btnFavorite').disabled = false;
